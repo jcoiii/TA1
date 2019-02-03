@@ -1,0 +1,298 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Source: 
+%Stylish Article
+% LaTeX Template
+% Version 2.1 (1/10/15)
+%
+% This template has been modified from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) 
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% Modified to be used in Mechatronics Engineering by
+% Dr. Christian Fredy Naa, S.Si., M.Si., M.Sc. 
+% Levin Halim, S.T., M.T.
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[fleqn,10pt]{SelfArx} % Document font size and equations flushed left
+
+\usepackage[indonesian]{babel} % Specify a different language here - english by default
+\usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%----------------------------------------------------------------------------------------
+%	COLUMNS
+%----------------------------------------------------------------------------------------
+
+\setlength{\columnsep}{0.55cm} % Distance between the two columns of text
+\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+
+%----------------------------------------------------------------------------------------
+%	COLORS
+%----------------------------------------------------------------------------------------
+
+\definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS
+%----------------------------------------------------------------------------------------
+
+\usepackage{hyperref} % Required for hyperlinks
+\hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=color2,citecolor=color1,linkcolor=color1,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE INFORMATION
+%----------------------------------------------------------------------------------------
+
+\JournalInfo{Laporan Tugas Akhir I} % Nama Mata Kuliah
+\Archive{Genap 2018/2019} % Isi dengan tahun ajaran
+
+\PaperTitle{Judul Topik Tugas Akhir I} % Judul tugas akhir
+\Authors{Jonathan Chandra\textsuperscript{1}*, Ali Sadiyoko, Tua Agustinus Tamba\textsuperscript{2}} % Nama pembuat laporan
+\affiliation{\textsuperscript{1}\textit{2015630028, Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Bandung, Indonesia}} % Afilasi pembuat laporan, NPM, Program Studi, Universitas
+\affiliation{\textsuperscript{2}\textit{NIK, Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Bandung, Indonesia}} % Afilasi pembuat laporan, NPM, Program Studi, Universitas
+\affiliation{*\textbf{E-mail}: 6315028@student.unpar.ac.id, alfa51@unpar.ac.id, ttamba@unpar.ac.id} % Corresponding author
+
+\Keywords{kata, kunci} % Kata kunci memuat istilah dan/atau konsep kunci yang dianggap penting. 
+\newcommand{\keywordname}{Kata kunci} % Defines the keywords heading name
+
+\addto{\captionsenglish}{\renewcommand{\abstractname}{Abstrak}} %renaming abstract
+\addto{\captionsenglish}{\renewcommand{\figurename}{Gambar}} %renaming Figure
+\addto{\captionsenglish}{\renewcommand{\tablename}{Tabel}} %renaming Table
+\addto{\captionsenglish}{\renewcommand{\refname}{Daftar Pustaka}} %renaming References
+\addto{\captionsenglish}{\renewcommand{\contentsname}{Daftar Isi}} %renaming Contents
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\Abstract{Abstrak mencakup rangkuman komprehensif mengenai isi makalah. Abstrak berisi uraian singkat mengenai isi makalah yang meliputi pendahuluan, tujuan, rumusan masalah, telaah pustaka serta hasil resume dari telaah pustaka.}
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\flushbottom % Makes all text pages the same height
+
+\maketitle % Print the title and abstract box
+
+\tableofcontents % Print the contents section
+
+\thispagestyle{empty} % Removes page numbering from the first page
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Pendahuluan} %Pendahuluan
+\subsection{Latar Belakang}
+Latar belakang berisi penjelasan singkat tentang latar belakang terjadinya suatu masalah, penjelasan mengenai alasan mengapa masalah tersebut dipandang menarik, penting dan perlu diteliti, serta manfaat yang dapat diperoleh setelah mela-kukan penelitian. Latar belakang masalah dapat berisi cerita dari beberapa referensi. \\
+
+Referensi yang digunakan dapat dituliskan dalam sebuah Daftar Pustaka (\textit{Bibliography}) yang dituliskan pada bagian terakhir artikel ini. Sedangkan cara menuliskan sitasi/rujukan pada badan artikel ini adalah dengan menggunakan format dari artikel \textit{IEEE}, dengan perintah \verb|\cite| \cite{Alexander}, jika menggunakan lebih dari satu referensi, \cite{Alexander,Chris}. \\
+
+\noindent
+\textbf{Contoh:}\\ \textit{Berdasarkan laporan di lapangan, ditemukan bahwa sering terjadi perubahan suhu di dalam kotak penyimpanan produk pada berbagai alat transportasi yang dimiliki PT. X. Hal ini mengakibatkan kualitas produk ikan PT. X menurun ketika sampai di pabrik pengolahan. Dari penelitian sebelumnya, perubahan kualitas produk ini biasanya terjadi akibat kebocoran yang terjadi pada kotak penyimpanan, namun juga dapat terjadi akibat beberapa faktor lain. Pada sebagian besar kasus, kebocoran ini dapat dihindari apabila operator mendapatkan informasi tentang adanya perubahan suhu dan kelembaban di dalam kotak penyimpanan.}
+
+\subsection{Identifikasi masalah}
+Konsep identifikasi masalah (\textit{problem identification}) adalah proses dan hasil pengenalan masalah atau inventarisasi masalah. Dengan kata lain, identifikasi masalah adalah salah satu proses penelitan yang boleh dikatakan paling penting di antara proses lain. Masalah penelitian (\textit{research problem}) akan menentukan kualitas suatu penelitian, bahkan itu juga menentukan apakah sebuah kegiatan bisa disebut penelitian atau tidak. Masalah penelitian secara umum bisa ditemukan melalui studi pustaka (\textit{literature review}) atau lewat pengamatan lapangan (observasi, survey) dan lain sebagainya. \\
+
+Berikut ini beberapa acuan yang perlu diperhatikan dalam merumuskan masalah penelitian, antara lain:
+\begin{enumerate}[noitemsep]
+	\item Rumusan masalah hendaknya dirumuskan dalam kalimat singkat dan bermakna.
+	\item Rumusan masalah hendaknya ditungkan dalam bentuk kalimat tanya. 
+	\item Rumusan masalah hendaknya jelas dan kongkrit.
+	\item Masalah hendaknya dirumuskan secara operasional/ dapat diselesaikan.
+	\item Perumusan masalah haruslah dibatasi ruang-lingkupnya sehingga itu memungkinkan penarikan simpulan yang jelas dan tegas. 	
+\end{enumerate}
+
+Dari contoh di atas, dapat disimpulkan bahwa masalah utama di PT. X tersebut adalah tidak adanya sistem informasi suhu dan kelembaban di dalam kotak penyimpanan PT. X, yang mampu memberikan peringatan dini ketika terjadi perubahan suhu dan kelembaban udara. Namun bagaimanakah menyusun kalimat identifikasi masalah yang baik? Berikut ini adalah contoh kalimat yang memenuhi kaidah penyusunan  kalimat identifikasi masalah yang diuraikan di atas.\\
+
+\noindent
+\textbf{Contoh:}\\ \textit{Berdasarkan uraian pada latar belakang masalah di atas, dapat diiidentifikasi masalah untuk menyelesaikan kasus di PT. X adalah:\\
+	Bagaimana membangun sebuah sistem informasi suhu dan kelembaban yang sesuai untuk diaplikasikan pada kasus di PT, X ?}
+
+% di dalam kotak penyimpanan PT. X, yang mampu memberikan peringatan dini ketika terjadi perubahan suhu dan kelembaban udara.
+\subsection{Batasan masalah}
+Batasan masalah adalah ruang lingkup masalah atau upaya membatasi ruang lingkup masalah yang terlalu luas atau lebar sehingga penelitian itu lebih bisa fokus untuk dilakukan. Hal ini dilakukan agar pembahasannya tidak terlalu luas kepada aspek-aspek yang jauh dari relevansi sehingga penelitian itu bisa lebih fokus untuk dilakukan. Berdasarkan sekian banyak masalah tersebut, dipilihlah satu atau dua masalah yang akan dipermasalahkan, tentu yang akan diteliti (lazim disebut dengan batasan masalah, \textit{limitation}). Dapat juga dikatakan bahwa batasan masalah, adalah pemilihan satu atau dua masalah dari beberapa masalah yang sudah teridentifikasi. Apabila terdapat beebrapa batasan, maka dapat dituliskan dengan menggunakan poin-poin bernomor (enumerasi).\\
+
+\noindent
+\textbf{Contoh:}\\
+\textit{Agar penelitian Tugas Akhir ini dapat diselesaikan dengan baik, perlu ada batasan pada masalah utama di atas. Batasan masalah tersebut antara lain: }
+	
+\begin{enumerate}[noitemsep]
+	\item \textit{Sistem yang akan dibangun masih berupa rancangan purwarupa (prototype).}
+	\item \textit{Sistem dirancang dengan memperhatikan faktor keekonomisan yang wajar dengan tanpa mengorbankan kriteria teknis yang ditetapkan.}
+	\item\textit{ Sistem dapat bertahan di lingkungan dengan suhu $-10\,^{\circ}\mathrm{C}$ hingga $15\,^{\circ}\mathrm{C}$}
+	\item \textit{Sistem akan dibangun dengan basis Arduino.}
+	\item \textit{dst.}
+\end{enumerate}
+
+\subsection{Tujuan Penelitian}
+Dalam bagian ini disebutkan secara spesifik tujuan yang a-kan dicapai dalam penelitian. Pengungkapan tujuan haruslah jelas, akurat dan tidak akan menimbulkan kesalahan interpretasi. Pengungkapan yang jelas akan mencegah pembaca untuk bertanya lebih lanjut tentang maksud atau makna ungkapan tersebut.\\
+
+\noindent
+\textbf{Contoh:}\\
+\textit{Tujuan penelitian pada Tugas Akhir ini adalah: membuat sistem informasi suhu dan kelembaban berbasis arduino untuk fasilitas mobile cold storage.}
+
+\subsection{Manfaat Penelitian}
+Manfaat penelitian adalah manfaat dari hasil penelitian ini bagi pihak-pihak yang berkepentingan, misalnya: 
+\begin{itemize}[noitemsep]
+	\item ilmu pengetahuan, baik secara umum ataupun khusus.
+	\item pihak perusahaa tempat dilakukannya penelitian.
+	\item kelompok masyarakat tertentu.
+	\item pemilik proyek penelitian.
+	\item pemerintah atau pihak pengambil keputusan.
+	\item peneliti sendiri.
+	\item dsb.
+\end{itemize}
+
+\noindent
+\textbf{Contoh:}\\
+\textit{Hasil penelitian Tugas Akhir ini diharapkan dapat memberikan manfaat untuk berbagai pihak, antara lain:
+\begin{enumerate}[noitemsep]
+	\item Perusahaan PT. X. Hasil penelitian Tugas Akhir ini dapat membantu menyelesaikan masalah yang sering terjadi pada saat transportasi produk bahan baku produksi.
+	\item Pembaca yang ingin mempelajari pemanfaatan sistem Arduino dalam sistem informasi monitoring suhu dan kelembaban 
+	\item Peneliti pribadi, untuk menambah pengetahuan dan pengalaman menyelesaikan masalah nyata di lapangan.
+	\item Pengembangan ilmu pengetahuan, terutama pada bidang sistem multi sensor, sistem tertanam dan sistem pengukuran dan akuisisi data.
+\end{enumerate}
+}
+%\addcontentsline{toc}{section}{Pendahuluan} % Adds this section to the table of contents.
+
+
+%------------------------------------------------
+
+\section{Telaah Pustaka}
+Sub bab ini berisi telaah terhadap beberapa referensi/ pustaka yang terkait dan digunakan dalam penelitian. Hasil penelitian sebelumnya yang terkait dengan penelitian yang sedang dilakukan juga dapat diletakkan pada bagian ini. Pada laporan Tugas Akhir yang sesungguhnya, bagian ini merupakan isi dari Bab 2, dan diletakkan sesudah Bab Pendahuluan.\\
+\textit{Subsection} selanjutnya pada \textit{section} ini merupakan resume dari masing-masing pustaka yang Anda telaah.
+
+\subsection{Referensi 1}
+Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah Referensi 1 yang akan digunakan pada penelitian. Dalam referensi, biasanya terdapat berbagai macam rumus. Penulisan rumus pada laporan ini menggunakan format sebagai berikut :
+\begin{equation}
+\label{eq:emc}
+e = mc^2
+\end{equation}
+
+\subsection{Referensi 2}
+Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah  Referensi 2 yang akan digunakan pada penelitian. Dalam referensi, biasanya terdapat berbagai macam gambar/skema/diagram. \\
+Penunjukan gambar dan rumus menggunakan perintah \verb|\ref|: Gambar \ref{gambar1} dan rumus (\ref{eq:emc}). Istilah asing dicetak miring. Penulisan gambar/skema/diagram pada laporan ini menggunakan format sebagai berikut : 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{rangkaian}
+	\caption{Gambar rangkaian.}
+	\label{gambar1}
+\end{figure}
+
+\begin{figure}\centering
+	\includegraphics[width=0.9\linewidth]{results}
+	\caption{Hasil percobaan.}
+	\label{fig:results}
+\end{figure}
+
+\subsection{Referensi 3}
+Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah  Referensi 3 yang akan digunakan pada penelitian. Jika dalam referensi tersebut terdapat gambar/ diagram/ skema yang lebar, maka penulisannya pada laporan ini dapat dilakukan seperti pada Gambar \ref{fig:view}. Gunakan format gambar seperti ini apabila gambar/grafik yang hendak dijelaskan tidak terlalu jelas apabila dicantumkan dalam format dua kolom.
+
+\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
+\includegraphics[width=0.9\linewidth]{view}
+\caption{Contoh penggunaan gambar yang lebar, yang tidak terlalu jelas apabila dicantumkan pada format dua kolom.}
+\label{fig:view}
+\end{figure*}
+
+%\lipsum[4] % Dummy text
+
+\subsection{Referensi 4}
+Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah Referensi 4 yang akan digunakan pada penelitian. Jika pada referensi tersebut terdapat poin yang dianggap penting/\textit{remark} dapat menggunakan perintah
+\verb|\paragraph|.
+
+\paragraph{Consensus Algorithm \cite{Ren}:} Suppose that there are $n$ vehicles in the team. The team’s communication topology can be represented by directed graph $\mathcal{G}_n \triangleq ( \mathcal{V}_n, \mathcal{E}_n) $, where $\mathcal{V}_n = {1,\ldots ,n}$ is the node set and $\mathcal{E}_n \subseteq \mathcal{V}_n \times \mathcal{V}_n$ is the edge set (see Appendix B for graph theory notations). For example, Fig. 1.2 shows three different communication topologies for three vehicles. The communication topology may be time varying due to vehicle motion or communication dropouts. For example, communication dropouts might occur when an unmanned air vehicle (UAV) banks away from its neighbor or flies through an urban canyon. The most common continuous-time consensus algorithm [69, 97, 126, 158, 190] is given by:
+\begin{equation}
+\dot{x}_i(t) = - \sum_{j=1}^{n} a_{ij}(t) [x_i(t)-x_j(t)], \hspace{5mm} i=1,\ldots,n,
+\end{equation}
+
+\paragraph{Hukum Ohm} Hukum Ohm adalah suatu pernyataan bahwa besar arus listrik yang mengalir melalui sebuah penghantar selalu berbanding lurus dengan beda potensial yang diterapkan kepadanya [Wikipedia]:
+\begin{equation}
+V=iR
+\end{equation}
+
+
+%------------------------------------------------
+
+\section{Hasil dan Pembahasan}
+
+Bagian ini berisi poin-poin hasil pemahaman Anda setelahAnda membaca dan membuat resume dari masing-masing referensi di bagian sebelumnya. Diharapkan, pada bagian ini, Anda dapat menuliskan kembali dengan lebih komprehensif hubungan antar referensi yang Anda baca. Analisa hubungan yang ada sehingga membentuk '\textit{benang merah}' topik penelitian yang Anda lakukan. Sehingga menampilkan argumen yang baik. Jangan menyalahkan alat, namun berpikirlah dengan lebih mendalam.\\
+
+Data dari excel berupa grafik diusahakan jelas dengan satuan dan simbol yang mudah dibaca dan dimasukkan sebagai gambar.\\
+
+Apabila data disajikan dalam tabel maka dimasukkan ke dalam tabel dengan memberikan satuan dan simbol yang jelas.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{grafik}
+	\caption{Grafik tanggapan amplitudo.}
+	\label{gambar2}
+\end{figure}
+
+\begin{table}[h]
+	\centering
+	\label{tabel1}
+	\caption{Hasil Pengukuran}
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	No. & I (mA) & V1 (V) & V2 (V)\\ 
+	\hline 
+	1 & 0.09 & 12 & 0 \\ 
+	\hline
+	2 & 0.93 & 0 & 6 \\
+	\hline
+	3 & 1.07 & 6 & 0 \\
+	\hline 
+\end{tabular}
+
+
+\end{table}
+\noindent Gunakan argumen yang kuantitatif dengan menampilkan angka hasil perhitungan. Hindari kalimat yang tidak kuantitatif seperti "besar", "kecil" namun ceritakan seberapa besar dan kecil parameter fisis yang dimaksud dengan satuan yang jelas.
+
+\section{Kesimpulan}
+
+Kesimpulan berisi rangkuman singkat tentang apa saja yang telah Anda peroleh dari proses membaca referensi/ pustaka yang ada. Pada bagian ini, boleh disebutkan langkah-langkah berikutnya yang akan Anda lakukan, misalnya: membaca beberapa pustaka lain, mencari \textit{datasheet} alat tertentu, mencari prosedur pengujian alat, parameter, data dan sebagainya. Gunakan poin-poin jika perlu.\\
+
+\noindent
+\textbf{Contoh:}
+\textit{\begin{itemize}[noitemsep]
+	\item Telah membaca \cite{Ren} dan telah memahami algoritma konsensus.
+	\item Telah memahami hukum Ohm dan aplikasinya dalam menganalisis rangkaian.
+	\item Telah memahami standar dan cara kerja komunikasi berbasis IP/ ethernet.
+	\item Akan melanjutkan membaca tentang teori propagasi menggunakan antena.
+	\item Akan melanjutkan mempelajari teorema Thevenin dan Norton.
+	\item Akan mencari referensi tentang localization dan navigation.
+	\item Akan mencari referensi tentang formation control.
+	\item dst.
+\end{itemize}}
+
+
+
+%--------------------------------------------------------------------------------------------DAFTAR-PUSTAKA----------------------------------------------------------------------------------------
+
+\phantomsection
+\begin{thebibliography}{99}
+\bibitem{Alexander} Charles K. Alexander, Matthew N. O. Sadiku. \newblock {\em Fundamentals of Electric Circuits.} 5th Edition. New York: Mc Graw Hill, 2013.
+\bibitem{Chris} Christian F Naa. \newblock {\em \LaTeX \space untuk Pemula}. Program Studi Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Self Published, 2018.
+\bibitem{Ren}Ren, Wei, and Randal W. Beard. \textit{Distributed Consensus in Multi-vehicle Cooperative Control}. London: Springer London, 2008.
+\end{thebibliography}
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
