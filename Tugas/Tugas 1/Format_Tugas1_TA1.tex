@@ -57,16 +57,16 @@
 %	ARTICLE INFORMATION
 %----------------------------------------------------------------------------------------
 
-\JournalInfo{Laporan Tugas Akhir I} % Nama Mata Kuliah
+\JournalInfo{Implementasi Kontrol Umpan Balik pada Sistem Pendulum Terbalik} % Nama Mata Kuliah
 \Archive{Genap 2018/2019} % Isi dengan tahun ajaran
 
-\PaperTitle{Judul Topik Tugas Akhir I} % Judul tugas akhir
-\Authors{Jonathan Chandra\textsuperscript{1}*, Ali Sadiyoko, Tua Agustinus Tamba\textsuperscript{2}} % Nama pembuat laporan
+\PaperTitle{Implementasi Kontrol Umpan Balik pada Sistem Pendulum Terbalik} % Judul tugas akhir
+\Authors{Jonathan Chandra\textsuperscript{1}*, Ali Sadiyoko\textsuperscript{2}, Tua Agustinus Tamba\textsuperscript{3}} % Nama pembuat laporan
 \affiliation{\textsuperscript{1}\textit{2015630028, Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Bandung, Indonesia}} % Afilasi pembuat laporan, NPM, Program Studi, Universitas
-\affiliation{\textsuperscript{2}\textit{NIK, Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Bandung, Indonesia}} % Afilasi pembuat laporan, NPM, Program Studi, Universitas
+\affiliation{\textsuperscript{2}\textit{20000247, Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Bandung, Indonesia}} % Afilasi pembuat laporan, NPM, Program Studi, Universitas
 \affiliation{*\textbf{E-mail}: 6315028@student.unpar.ac.id, alfa51@unpar.ac.id, ttamba@unpar.ac.id} % Corresponding author
 
-\Keywords{kata, kunci} % Kata kunci memuat istilah dan/atau konsep kunci yang dianggap penting. 
+\Keywords{Pendulum Terbalik, Model Dinamika Lagrange, Non-Linier, Kontrol PID} % Kata kunci memuat istilah dan/atau konsep kunci yang dianggap penting. 
 \newcommand{\keywordname}{Kata kunci} % Defines the keywords heading name
 
 \addto{\captionsenglish}{\renewcommand{\abstractname}{Abstrak}} %renaming abstract
@@ -78,7 +78,7 @@
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
 
-\Abstract{Abstrak mencakup rangkuman komprehensif mengenai isi makalah. Abstrak berisi uraian singkat mengenai isi makalah yang meliputi pendahuluan, tujuan, rumusan masalah, telaah pustaka serta hasil resume dari telaah pustaka.}
+\Abstract{Sistem Pendulum Terbalik adalah salah satu \textit{benchmark} yang digunakan untuk mengukur performa teori kontrol yang digunakan. Sistem ini pada dasarnya terdiri dari beberapa komponen yaitu (i)batang (ii)kereta dan (iii)Motor elektrik dimana batang dari sistem akan dijaga agar berada pada posisi vertikal diatas kereta (\textit{cart}) dengan menggunakan metode kontrol umpan balik. Tulisan ini dibuat sebagai langkah awal untuk mendesain suatu sistem pendulum terbalik dengan metode kontrol PID dengan meninjau persamaan non-linier yang telah diturunkan.}
 
 
 %----------------------------------------------------------------------------------------
@@ -99,187 +99,238 @@
 
 \section{Pendahuluan} %Pendahuluan
 \subsection{Latar Belakang}
-Latar belakang berisi penjelasan singkat tentang latar belakang terjadinya suatu masalah, penjelasan mengenai alasan mengapa masalah tersebut dipandang menarik, penting dan perlu diteliti, serta manfaat yang dapat diperoleh setelah mela-kukan penelitian. Latar belakang masalah dapat berisi cerita dari beberapa referensi. \\
 
-Referensi yang digunakan dapat dituliskan dalam sebuah Daftar Pustaka (\textit{Bibliography}) yang dituliskan pada bagian terakhir artikel ini. Sedangkan cara menuliskan sitasi/rujukan pada badan artikel ini adalah dengan menggunakan format dari artikel \textit{IEEE}, dengan perintah \verb|\cite| \cite{Alexander}, jika menggunakan lebih dari satu referensi, \cite{Alexander,Chris}. \\
+Sistem pendulum terbalik adalah sistem yang sering digunakan untuk mendemonstrasikan dinamika sistem dan implementasi sistem kontrol \cite{pendh}. Sistem pendulum terbalik dapat digunakan sebagai salah satu \textit{benchmark} pada penerapan teori kontrol. \textit{Benchmark} dari teori kontrol yang dimaksud adalah penggunaan model yang telah diturunkan dan melakukan pengukuran validasi terhadap efisiensi dari metode kontrol yang diimplementasikan pada sistem \cite{bench}.
 
-\noindent
-\textbf{Contoh:}\\ \textit{Berdasarkan laporan di lapangan, ditemukan bahwa sering terjadi perubahan suhu di dalam kotak penyimpanan produk pada berbagai alat transportasi yang dimiliki PT. X. Hal ini mengakibatkan kualitas produk ikan PT. X menurun ketika sampai di pabrik pengolahan. Dari penelitian sebelumnya, perubahan kualitas produk ini biasanya terjadi akibat kebocoran yang terjadi pada kotak penyimpanan, namun juga dapat terjadi akibat beberapa faktor lain. Pada sebagian besar kasus, kebocoran ini dapat dihindari apabila operator mendapatkan informasi tentang adanya perubahan suhu dan kelembaban di dalam kotak penyimpanan.}
+Sistem pendulum terbalik sendiri adalah sistem non-linear yang terdiri dari suatu batang yang diletakkan pada sebuah kereta (\textit{cart}) yang akan digerakkan menggunakan motor yang akan dikendalikan sehingga mengasilkan gerakan ayunan dari batang yang berfungsi untuk menjaga batang dapat mencapai posisi vertikal diatas kereta (\textit{cart}) \cite{lowcost}
+
+Dalam beberapa tahun terakhir, pengaplikasian dari sistem pendulum terbalik banyak digunakan dalam penelitian \textit{Two-Wheeled Self-Balancing Robot} \cite{twow}\cite{twoww}. Metode kontrol yang digunakan adalah kontrol LQR (\textit{Linear Quadratic Regulator}) karena dibatasi dengan simpangan sudut kecil\cite{twow}. Kekurangan dari penggunaan metode kontrol LQR adalah sudut simpangan yang terlalu kecil karena sistem yang dikendalikan oleh kontrol LQR adalah sistem linear \cite{cdes}.
 
 \subsection{Identifikasi masalah}
-Konsep identifikasi masalah (\textit{problem identification}) adalah proses dan hasil pengenalan masalah atau inventarisasi masalah. Dengan kata lain, identifikasi masalah adalah salah satu proses penelitan yang boleh dikatakan paling penting di antara proses lain. Masalah penelitian (\textit{research problem}) akan menentukan kualitas suatu penelitian, bahkan itu juga menentukan apakah sebuah kegiatan bisa disebut penelitian atau tidak. Masalah penelitian secara umum bisa ditemukan melalui studi pustaka (\textit{literature review}) atau lewat pengamatan lapangan (observasi, survey) dan lain sebagainya. \\
 
-Berikut ini beberapa acuan yang perlu diperhatikan dalam merumuskan masalah penelitian, antara lain:
+Berdasarkan uraian pada latar belakang masalah di atas, dapat diiidentifikasi masalah untuk menyelesaikan penelitian sistem pendulum terbalik adalah:
+
 \begin{enumerate}[noitemsep]
-	\item Rumusan masalah hendaknya dirumuskan dalam kalimat singkat dan bermakna.
-	\item Rumusan masalah hendaknya ditungkan dalam bentuk kalimat tanya. 
-	\item Rumusan masalah hendaknya jelas dan kongkrit.
-	\item Masalah hendaknya dirumuskan secara operasional/ dapat diselesaikan.
-	\item Perumusan masalah haruslah dibatasi ruang-lingkupnya sehingga itu memungkinkan penarikan simpulan yang jelas dan tegas. 	
+	\item Apa saja komponen dari sistem pendulum terbalik?
+	\item Apa saja komponen dari sistem pendulum terbalik yang perlu dimodelkan?
+	\item Bagaimana cara memodelkan sistem pendulum terbalik?
+	\item Apa Metode kontrol yang tepat untuk mengendalikan motor agar dapat digunakan simpangan maksimal dari sistem pendulum terbalik yaitu $\theta$ = 180\textsuperscript{o}?
 \end{enumerate}
 
-Dari contoh di atas, dapat disimpulkan bahwa masalah utama di PT. X tersebut adalah tidak adanya sistem informasi suhu dan kelembaban di dalam kotak penyimpanan PT. X, yang mampu memberikan peringatan dini ketika terjadi perubahan suhu dan kelembaban udara. Namun bagaimanakah menyusun kalimat identifikasi masalah yang baik? Berikut ini adalah contoh kalimat yang memenuhi kaidah penyusunan  kalimat identifikasi masalah yang diuraikan di atas.\\
-
-\noindent
-\textbf{Contoh:}\\ \textit{Berdasarkan uraian pada latar belakang masalah di atas, dapat diiidentifikasi masalah untuk menyelesaikan kasus di PT. X adalah:\\
-	Bagaimana membangun sebuah sistem informasi suhu dan kelembaban yang sesuai untuk diaplikasikan pada kasus di PT, X ?}
-
-% di dalam kotak penyimpanan PT. X, yang mampu memberikan peringatan dini ketika terjadi perubahan suhu dan kelembaban udara.
 \subsection{Batasan masalah}
-Batasan masalah adalah ruang lingkup masalah atau upaya membatasi ruang lingkup masalah yang terlalu luas atau lebar sehingga penelitian itu lebih bisa fokus untuk dilakukan. Hal ini dilakukan agar pembahasannya tidak terlalu luas kepada aspek-aspek yang jauh dari relevansi sehingga penelitian itu bisa lebih fokus untuk dilakukan. Berdasarkan sekian banyak masalah tersebut, dipilihlah satu atau dua masalah yang akan dipermasalahkan, tentu yang akan diteliti (lazim disebut dengan batasan masalah, \textit{limitation}). Dapat juga dikatakan bahwa batasan masalah, adalah pemilihan satu atau dua masalah dari beberapa masalah yang sudah teridentifikasi. Apabila terdapat beebrapa batasan, maka dapat dituliskan dengan menggunakan poin-poin bernomor (enumerasi).\\
 
-\noindent
-\textbf{Contoh:}\\
-\textit{Agar penelitian Tugas Akhir ini dapat diselesaikan dengan baik, perlu ada batasan pada masalah utama di atas. Batasan masalah tersebut antara lain: }
+Agar penelitian Tugas Akhir ini dapat diselesaikan dengan baik, perlu ada batasan pada masalah utama di atas. Batasan masalah tersebut antara lain: 
 	
 \begin{enumerate}[noitemsep]
-	\item \textit{Sistem yang akan dibangun masih berupa rancangan purwarupa (prototype).}
-	\item \textit{Sistem dirancang dengan memperhatikan faktor keekonomisan yang wajar dengan tanpa mengorbankan kriteria teknis yang ditetapkan.}
-	\item\textit{ Sistem dapat bertahan di lingkungan dengan suhu $-10\,^{\circ}\mathrm{C}$ hingga $15\,^{\circ}\mathrm{C}$}
-	\item \textit{Sistem akan dibangun dengan basis Arduino.}
-	\item \textit{dst.}
+	\item Sistem yang akan dibangun masih berupa rancangan purwarupa (prototype).
+	\item Sistem pendulum terbalik akan menggunakan satu buah batang.
+	\item Sistem akan dibangun dengan basis Arduino atau Raspberry Pi.
 \end{enumerate}
 
 \subsection{Tujuan Penelitian}
-Dalam bagian ini disebutkan secara spesifik tujuan yang a-kan dicapai dalam penelitian. Pengungkapan tujuan haruslah jelas, akurat dan tidak akan menimbulkan kesalahan interpretasi. Pengungkapan yang jelas akan mencegah pembaca untuk bertanya lebih lanjut tentang maksud atau makna ungkapan tersebut.\\
 
-\noindent
-\textbf{Contoh:}\\
-\textit{Tujuan penelitian pada Tugas Akhir ini adalah: membuat sistem informasi suhu dan kelembaban berbasis arduino untuk fasilitas mobile cold storage.}
+Tujuan penelitian pada Tugas Akhir ini adalah membuat model dan mengimplementasikan kontrol umpan balik  pada sistem pendulum terbalik dan membuat prototipe dari sistem, serta menampilkan perfroma dari sistem pendulum terbalik menggunakan suatu metode kontroluntuk dapat mempertahankan posisi dari batang yang diinginkan dengan sudut simpangan $\theta$=180\textsuperscript{o}.
 
 \subsection{Manfaat Penelitian}
-Manfaat penelitian adalah manfaat dari hasil penelitian ini bagi pihak-pihak yang berkepentingan, misalnya: 
+Berikut adalah manfaat dari penelitian sistem pendulum terbalik untuk beberapa pihak, antara lain: 
 \begin{itemize}[noitemsep]
-	\item ilmu pengetahuan, baik secara umum ataupun khusus.
-	\item pihak perusahaa tempat dilakukannya penelitian.
-	\item kelompok masyarakat tertentu.
-	\item pemilik proyek penelitian.
-	\item pemerintah atau pihak pengambil keputusan.
-	\item peneliti sendiri.
-	\item dsb.
+	\item Laboratorium Kontrol yang ingin menunjukkan implementasi sistem kontrol pada suatu sistem (pada kasus ini Sistem Pendulum Terbalik).
+	\item Pembaca yang ingin mempelajari pemanfaatan sistem kontrol pada sistem pendulum terbalik.
+	\item Peneliti pribadi, untuk menambah pengetahuan dan pengalaman menyelesaikan masalah nyata di lapangan.
+	\item Pengembangan ilmu pengetahuan, terutama pada bidang sistem kontrol, dan sistem pengukuran dan akuisisi data.
 \end{itemize}
 
-\noindent
-\textbf{Contoh:}\\
-\textit{Hasil penelitian Tugas Akhir ini diharapkan dapat memberikan manfaat untuk berbagai pihak, antara lain:
-\begin{enumerate}[noitemsep]
-	\item Perusahaan PT. X. Hasil penelitian Tugas Akhir ini dapat membantu menyelesaikan masalah yang sering terjadi pada saat transportasi produk bahan baku produksi.
-	\item Pembaca yang ingin mempelajari pemanfaatan sistem Arduino dalam sistem informasi monitoring suhu dan kelembaban 
-	\item Peneliti pribadi, untuk menambah pengetahuan dan pengalaman menyelesaikan masalah nyata di lapangan.
-	\item Pengembangan ilmu pengetahuan, terutama pada bidang sistem multi sensor, sistem tertanam dan sistem pengukuran dan akuisisi data.
-\end{enumerate}
-}
 %\addcontentsline{toc}{section}{Pendahuluan} % Adds this section to the table of contents.
 
 
 %------------------------------------------------
 
 \section{Telaah Pustaka}
-Sub bab ini berisi telaah terhadap beberapa referensi/ pustaka yang terkait dan digunakan dalam penelitian. Hasil penelitian sebelumnya yang terkait dengan penelitian yang sedang dilakukan juga dapat diletakkan pada bagian ini. Pada laporan Tugas Akhir yang sesungguhnya, bagian ini merupakan isi dari Bab 2, dan diletakkan sesudah Bab Pendahuluan.\\
-\textit{Subsection} selanjutnya pada \textit{section} ini merupakan resume dari masing-masing pustaka yang Anda telaah.
 
-\subsection{Referensi 1}
-Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah Referensi 1 yang akan digunakan pada penelitian. Dalam referensi, biasanya terdapat berbagai macam rumus. Penulisan rumus pada laporan ini menggunakan format sebagai berikut :
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
-
-\subsection{Referensi 2}
-Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah  Referensi 2 yang akan digunakan pada penelitian. Dalam referensi, biasanya terdapat berbagai macam gambar/skema/diagram. \\
-Penunjukan gambar dan rumus menggunakan perintah \verb|\ref|: Gambar \ref{gambar1} dan rumus (\ref{eq:emc}). Istilah asing dicetak miring. Penulisan gambar/skema/diagram pada laporan ini menggunakan format sebagai berikut : 
+\subsection{State Space Control Using LQR Method for a Cart-Inverted Pendulum Linearised Model}
+Pada Referensi ini akan diambil bagian penurunan model matematik dari sistem pendulum terbalik. Penulis menggunakan metode euler-lagrange, metode ini menurunkan persamaan dinamika dari sistem dengan menjabarkan energi kinetik dan potensial dari sistem untuk mendapatkan persamaan gerak dari sistem. Illustrasi model sistem pendulum terbalik digambarkan pada gambar \ref{illus}:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\linewidth]{rangkaian}
-	\caption{Gambar rangkaian.}
-	\label{gambar1}
+	\includegraphics[width=0.7\linewidth]{illu1}
+	\caption{Illustrasi Model Sistem Pendulum Terbalik \cite{ssc}}
+	\label{illus}
 \end{figure}
-
-\begin{figure}\centering
-	\includegraphics[width=0.9\linewidth]{results}
-	\caption{Hasil percobaan.}
-	\label{fig:results}
-\end{figure}
-
-\subsection{Referensi 3}
-Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah  Referensi 3 yang akan digunakan pada penelitian. Jika dalam referensi tersebut terdapat gambar/ diagram/ skema yang lebar, maka penulisannya pada laporan ini dapat dilakukan seperti pada Gambar \ref{fig:view}. Gunakan format gambar seperti ini apabila gambar/grafik yang hendak dijelaskan tidak terlalu jelas apabila dicantumkan dalam format dua kolom.
-
-\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
-\includegraphics[width=0.9\linewidth]{view}
-\caption{Contoh penggunaan gambar yang lebar, yang tidak terlalu jelas apabila dicantumkan pada format dua kolom.}
-\label{fig:view}
-\end{figure*}
-
-%\lipsum[4] % Dummy text
-
-\subsection{Referensi 4}
-Berisi kata-kata penting (\textit{keywords}), definisi dari \textit{keywords} dan telaah Referensi 4 yang akan digunakan pada penelitian. Jika pada referensi tersebut terdapat poin yang dianggap penting/\textit{remark} dapat menggunakan perintah
-\verb|\paragraph|.
-
-\paragraph{Consensus Algorithm \cite{Ren}:} Suppose that there are $n$ vehicles in the team. The team’s communication topology can be represented by directed graph $\mathcal{G}_n \triangleq ( \mathcal{V}_n, \mathcal{E}_n) $, where $\mathcal{V}_n = {1,\ldots ,n}$ is the node set and $\mathcal{E}_n \subseteq \mathcal{V}_n \times \mathcal{V}_n$ is the edge set (see Appendix B for graph theory notations). For example, Fig. 1.2 shows three different communication topologies for three vehicles. The communication topology may be time varying due to vehicle motion or communication dropouts. For example, communication dropouts might occur when an unmanned air vehicle (UAV) banks away from its neighbor or flies through an urban canyon. The most common continuous-time consensus algorithm [69, 97, 126, 158, 190] is given by:
+\noindent
+Persamaan \textit{Euler-Lagrange} dituliskan dengan persamaan \ref{eq:lag1}
 \begin{equation}
-\dot{x}_i(t) = - \sum_{j=1}^{n} a_{ij}(t) [x_i(t)-x_j(t)], \hspace{5mm} i=1,\ldots,n,
+\label{eq:lag1}
+\mathcal{L} = \mathcal{K}(q,\dot{q}) - \mathcal{P}(q)
+\end{equation}
+dimana 
+\begin{itemize}
+	\item $\mathcal{L}$ adalah Persamaan Lagrange
+	\item $\mathcal{K}(q,\dot{q})$ adalah Energi Kinetik 
+	\item $\mathcal{P}(q)$ adalah Energi Potensial
+\end{itemize}
+\noindent
+energi kinetik dituliskan dengan persamaan \ref{eq:ek}
+\begin{equation}
+\label{eq:ek}
+\mathcal{K}(q,\dot{q}) = \frac{1}{2}mv^{2}
+\end{equation}
+\noindent
+energi potensial dituliskan dengan persamaan \ref{eq:ep}
+\begin{equation}
+\label{eq:ep}
+\mathcal{P}(q)= mgh
+\end{equation}
+dimana
+\begin{itemize}
+	\item \textit{m} adalah massa benda
+	\item \textit{v} adalah turunan posisi
+	\item \textit{g} adalah gaya gravitasi
+	\item \textit{h} adalah ketinggian benda dari permukaan
+\end{itemize}
+\noindent
+kemudian persamaan gerak dapat diturunkan dari persamaan lagrange yang didapat dengan persamaan \ref{eq:lag2}
+
+
+\begin{equation}
+\label{eq:lag2}
+\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial{q_{\dot{i}}}}-\frac{\partial\mathcal{L}}{\partial{q_{i}}} = Q_{i}
+\end{equation}
+dimana
+\begin{itemize}
+	\item $Q_{i}$ adalah gaya eksternal yang diberikan pada sistem
+	\item $q_{i}$ adalah keluaran dari sistem, i = 1,2,.....
+\end{itemize}
+\noindent
+Persamaan gerak dari sistem pendulum terbalik pada gambar \ref{illus} dituliskan dalam persamaan \ref{eq:eom1} dan \ref{eq:eom2}
+
+\begin{equation}
+\label{eq:eom1}
+f = (M + m)\ddot{x} + ml\ddot{\theta}cos\theta - ml\dot{\theta^{2}}sin\theta
+\end{equation}
+dan
+\begin{equation}
+\begin{split}
+\label{eq:eom2}
+0 = ml(\ddot{x}cos\theta - \dot{\theta}\dot{x}sin\theta) + ml^{2}\ddot{\theta}\\ -(-m\dot{x}l\dot{\theta}sin\theta + mglsin\theta)
+\end{split}
 \end{equation}
 
-\paragraph{Hukum Ohm} Hukum Ohm adalah suatu pernyataan bahwa besar arus listrik yang mengalir melalui sebuah penghantar selalu berbanding lurus dengan beda potensial yang diterapkan kepadanya [Wikipedia]:
+dimana
+\begin{itemize}
+	\item \textit{M} adalah massa kereta
+	\item \textit{m} adalah massa batang
+	\item \textit{$\dot{x}$} adalah turunan pertama dari posisi
+	\item \textit{$\ddot{x}$} adalah turunan kedua dari posisi
+	\item \textit{$\theta$} adalah sudut kemiringan batang
+	\item \textit{$\dot{\theta}$} adalah turunan pertama dari sudut kemiringan batang
+	\item \textit{$\dot{\theta}$} adalah turunan kedua dari sudut kemiringan batang
+	\item \textit{l} adalah panjang batang	
+\end{itemize}
+
+\subsection{Design and development of a low-cost inverted pendulum for control education}
+Pada Referensi ini penulis menjelaskan komponen apa saja yang penulis gunakan untuk membuat suatu sistem pendulum terbalik untuk tujuan pendidikan dengan biaya yang rendah, karena sistem pendulum terbalik memiliki karakteristik dinamika yang menarik dan mudah dimengerti bagi orang yang memiliki pengetahuan dasar mengenai mekanika dan pergerakan.
+\begin{figure}[h!] % Using \begin{figure*} makes the figure take up the entire width of the page
+	\centering
+	\includegraphics[width=1\linewidth]{pendas}
+	\caption{Rakitan Komponen Sistem Pendulum Terbalik\cite{ssc}}
+	\label{fig:pendasli}
+\end{figure}
+
+Gambar \ref{fig:pendasli} menggambarkan sebuah sistem pendulum terbalik yang telah dirakit, komponen dari sistem pendulum terbalik dari referensi ini adalah sebagai berikut:
+
+\begin{enumerate}
+	\item Batang Pendulum
+	\item Kereta \textit{(cart)} 
+	\item Motor DC dengan Encoder
+	\item Arduino Mega
+	\item Limit Switch
+	\item Batang Rel untuk Kereta
+\end{enumerate}
+
+
+Motor yang digunakan pada sistem pendulum terbalik ini adalah \textit{motor stepper}, motor ini digunakan untuk mendapatkan sudut dari putaran motor sesuai yang diinginkan oleh pengguna. Pada referensi ini tidak dijelaskan mengapa motor stepper yang dipilih adalah motor dengan tipe Trinamic QSH618-45-28-110.
+
+Sistem pendulum terbalik memerlukan sensor posisi dan sudut untuk mengetahui posisi dari kereta \textit{(cart)} dan batang pendulum, maka dari itu diperlukan \textit{encoder} dari untuk mengetahui sudut dari \textit{shaft} motor dan kecepatan dari gerakan kereta \textit{(cart)}. 
+
+Untuk keamanan sistem agar mencegah sistem berfungsi secara abnormal, maka digunakan dua buah sensor \textit{limit switch} yang berfungsi untuk memutus sumber listrik ke motor agar kereta tidak bergerak melewati batas yang telah ditentukan yang telah diprogram pada mikrokontroller Arduino Mega. 
+
+\subsection{Analysis \& Control of Inverted Pendulum System Using PID Controller}
+Pada Referensi ini penulis menggunakan pengendali PID, namun untuk melakukan penyetelan nilai parameter padapengendali PID umumnya dilakukan menggunakan metode \textit{trial \& error}. Penulis menyatakan pengendali LQR itu setara dengan pengedali PD dua \textit{loop} yang memiliki respon yang buruk, maka dari itu digunakanlah pengendali PID dan penyetelan dari nilai parameter PID menggunakan metode \textit{pole-placement}.
+
+Terdapat dua pengendali PID pada sistem yang dibuat oleh penulis, pengendali PID digunakan untuk mengendalikan posisi dari kereta \textit{(cart)} dan sudut kemiringan dari batang pendulum. Persamaan \ref{eq:pid} adalah persamaan umum dari pengendali PID
 \begin{equation}
-V=iR
+\label{eq:pid}
+u(t) = K_{p}e(t) + K_{i}\int_{0}^{t}e(t)dt + K_{d}\frac{de(t)}{dt}
+\end{equation}
+dimana:
+
+\begin{itemize}
+	\item u(t) adalah gaya eksternal sistem
+	\item $e(t)$ adalah nilai perbedaan \textit{feedback} dengan \textit{reference}
+	\item $K_{p}$ adalah \textit{gain} proporsional
+	\item $K_{i}$ adalah \textit{gain} integratif
+	\item $K_{d}$ adalah \textit{gain} derivatif
+\end{itemize}
+
+Pengendali PID pertama akan digunakan untuk mengendalikan posisi sedangkan PID kedua akan digunakan untuk mengendalikan sudut $\theta$. maka PID satu adalah PID1 = X(s)/U(s) dan PID dua adalah PID2 = $\theta$(s)/U(S), persamaan ini didapat dari persamaan sistem secara umum yaitu \textit{output/input} = sistem. 
+
+Persamaan karakteristik kontrol didapat dengan persamaan \ref{eq:belt}
+\begin{equation}
+\label{eq:belt}
+1 - PID1C1 + PID2C2 = 0
+\end{equation}
+\noindent
+dimana C1 dan C2 adalah persamaan umum dari pengendali PID. maka didapatkan lah persamaan karakteristik yang diinginkan pada persamaan \ref{eq:belt2}
+
+\begin{equation}
+\label{eq:belt2}
+{s^5} + {p1s^4} + {p2s^3} + {p3s^2} + p4s + p5
 \end{equation}
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{db}
+	\caption{Diagram Blok PID dua loop \cite{PIDC}}
+	\label{dbo}
+\end{figure}
 
 %------------------------------------------------
 
 \section{Hasil dan Pembahasan}
+Berikut adalah Hasil yand didapatkan setelah menelaah tiga buah referensi penelitian mengenai sistem pendulum terbalik
 
-Bagian ini berisi poin-poin hasil pemahaman Anda setelahAnda membaca dan membuat resume dari masing-masing referensi di bagian sebelumnya. Diharapkan, pada bagian ini, Anda dapat menuliskan kembali dengan lebih komprehensif hubungan antar referensi yang Anda baca. Analisa hubungan yang ada sehingga membentuk '\textit{benang merah}' topik penelitian yang Anda lakukan. Sehingga menampilkan argumen yang baik. Jangan menyalahkan alat, namun berpikirlah dengan lebih mendalam.\\
+\begin{enumerate}
+\item Terdapat dua cara untuk menurunkan model dinamika suatu sistem, menggunakan dinamika lagrange adalah salah satu caranya. model dinamika dari sistem pendulum terbalik dapat diliahat pada persamaan \ref{eq:eom1} dan \ref{eq:eom2} dengan menggunakan komponen sesuai pada referensi \cite{cdes}
+\item Hasil yang didapatkan penulis pada referensi \cite{PIDC} menyatakan bahwa dengan menggunakan pengendali PID dengan penyetelan parameter nilai PID dengan menggunakan metode \textit{pole placement} menghasilkan hasil respon yang stabil dan memiliki \textit{rise time} dan \textit{overshoot} yang rendah dari posisi dan sudut yang dihasilkan oleh kereta \textit{cart} dan batang pendulum yang digambarkan pada gambar \ref{suduts} dan \ref{posisis}
 
-Data dari excel berupa grafik diusahakan jelas dengan satuan dan simbol yang mudah dibaca dan dimasukkan sebagai gambar.\\
-
-Apabila data disajikan dalam tabel maka dimasukkan ke dalam tabel dengan memberikan satuan dan simbol yang jelas.
-\begin{figure}[h]
+\end{enumerate}
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{grafik}
-	\caption{Grafik tanggapan amplitudo.}
-	\label{gambar2}
+	\includegraphics[width=1\linewidth]{sudut}
+	\caption{Hasil grafik sudut batang \cite{PIDC}}
+	\label{suduts}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\linewidth]{posisi}
+	\caption{Hasil grafik posisi kereta \textit{cart} \cite{PIDC}}
+	\label{posisis}
 \end{figure}
 
-\begin{table}[h]
-	\centering
-	\label{tabel1}
-	\caption{Hasil Pengukuran}
-\begin{tabular}{|c|c|c|c|}
-	\hline 
-	No. & I (mA) & V1 (V) & V2 (V)\\ 
-	\hline 
-	1 & 0.09 & 12 & 0 \\ 
-	\hline
-	2 & 0.93 & 0 & 6 \\
-	\hline
-	3 & 1.07 & 6 & 0 \\
-	\hline 
-\end{tabular}
 
-
-\end{table}
-\noindent Gunakan argumen yang kuantitatif dengan menampilkan angka hasil perhitungan. Hindari kalimat yang tidak kuantitatif seperti "besar", "kecil" namun ceritakan seberapa besar dan kecil parameter fisis yang dimaksud dengan satuan yang jelas.
 
 \section{Kesimpulan}
 
-Kesimpulan berisi rangkuman singkat tentang apa saja yang telah Anda peroleh dari proses membaca referensi/ pustaka yang ada. Pada bagian ini, boleh disebutkan langkah-langkah berikutnya yang akan Anda lakukan, misalnya: membaca beberapa pustaka lain, mencari \textit{datasheet} alat tertentu, mencari prosedur pengujian alat, parameter, data dan sebagainya. Gunakan poin-poin jika perlu.\\
-
-\noindent
-\textbf{Contoh:}
-\textit{\begin{itemize}[noitemsep]
-	\item Telah membaca \cite{Ren} dan telah memahami algoritma konsensus.
-	\item Telah memahami hukum Ohm dan aplikasinya dalam menganalisis rangkaian.
-	\item Telah memahami standar dan cara kerja komunikasi berbasis IP/ ethernet.
-	\item Akan melanjutkan membaca tentang teori propagasi menggunakan antena.
-	\item Akan melanjutkan mempelajari teorema Thevenin dan Norton.
-	\item Akan mencari referensi tentang localization dan navigation.
-	\item Akan mencari referensi tentang formation control.
-	\item dst.
-\end{itemize}}
+Berikut adalah Kesimpulan dari Telaah Pustaka dari beberapa referensi yang telah dilakukan:
+\textit{\begin{enumerate}
+	\item Telah membaca \cite{cdes} dan \cite{ssc} dan telah memahami Model Dinamika Lagrange.
+	\item Telah menurunkan model lagrange dari sistem pendulum terbalik.
+	\item Telah mengetahui komponen dasar yang diperlukan untuk membuat sistem pendulum terbalik.
+	\item akan melanjutkan membaca \cite{ssc} dan \cite{PIDC}
+	\item Akan melanjutkan membaca tentang Model Dinamika suatu sistem.
+	\item Akan mencari referensi memodelkan motor elektrik.
+	\item Akan mencari referensi kontrol PID lainnya
+\end{enumerate}}
 
 
 
@@ -287,9 +338,15 @@ Kesimpulan berisi rangkuman singkat tentang apa saja yang telah Anda peroleh dar
 
 \phantomsection
 \begin{thebibliography}{99}
-\bibitem{Alexander} Charles K. Alexander, Matthew N. O. Sadiku. \newblock {\em Fundamentals of Electric Circuits.} 5th Edition. New York: Mc Graw Hill, 2013.
-\bibitem{Chris} Christian F Naa. \newblock {\em \LaTeX \space untuk Pemula}. Program Studi Teknik Elektro Konsentrasi Mekatronika, Universitas Katolik Parahyangan, Self Published, 2018.
-\bibitem{Ren}Ren, Wei, and Randal W. Beard. \textit{Distributed Consensus in Multi-vehicle Cooperative Control}. London: Springer London, 2008.
+\bibitem{pendh} Kent H. Lundberg and Taylor W. Barton. \newblock {\em History of Inverted-Pendulum Systems.} International Federation of Automatic Control, 2010.
+\bibitem{bench} Olfa Boubaker. \newblock {\em The Inverted Pendulum: A fundamental Benchmark in Control Theory and Robotics}. \textit{In Education and e-LEarning Innovations}, Self Published, 2012.
+\bibitem{twow}Hellman, Hanna and Sunnerman, Henrik. \textit{Two-Wheeled Self-Balancing Robot: Design and control based on the concept of an inverted pendulum}. London: KTH, 2015.
+\bibitem{twoww}Ooi, Rich Chi \textit{Balancing a Two-Wheeled Autonomous Robot}. Perth: The University of Western Australia, 2003.
+\bibitem{cdes}P. Kumar and J.Mahto \textit{CONTROLLER DESIGN OF INVERTED PENDULUM USING POLE PLACEMENT AND LQR}. IJRET, 2012.
+\bibitem{lowcost}Bakar{\'a}{\v{c}}, Peter and Kal{\'u}z, Martin and others \textit{Design and development of a low-cost inverted pendulum for control education}. IEEE, 2017.
+\bibitem{ssc} Indrazno Siradjuddin, Budhy Setiawan, And Ahmad Fahmi \textit{State Space Control Using LQR Method for a Cart-Inverted Pendulum Linearised Model}. IJMME, 2017.
+\bibitem{PIDC} Vivek Kumar pathak and Sankalp Paliwal
+\textit{Analysis \& Control of Inverted Pendulum System Using PID}.IJERA, 2017.
 \end{thebibliography}
 
 
