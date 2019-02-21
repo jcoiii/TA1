@@ -1,0 +1,14 @@
+\appendix
+\linespread{1.25} % Spasi 1.5
+\chapter{Beberapa Teori Pendukung}
+\section{\textit{Graph Theory Notations}}
+
+It is natural to model information exchange among vehicles by directed or undirected graphs.\textsuperscript{1} Suppose that a team consists of p vehicles. A \textit{directed
+graph} is a pair $(\mathcal{V}_p,  \mathcal{E}_p)$, where $\mathcal{V}_p = {1, \ldots , p}$ is a finite nonempty \textit{node} set and $\mathcal{E}_p \subseteq \mathcal{V}_p \times \mathcal{V}_p$ is an \textit{edge} set of ordered pairs of nodes, called \textit{edges}. The edge $(i, j)$ in the edge set of a directed graph denotes that vehicle $j$ can obtain information from vehicle $i$, but not necessarily \textit{vice versa}. Self-edges $(i, i)$ are not allowed unless otherwise indicated. For the edge $(i, j)$, $i$ is the \textit{parent node} and $j$ is the \textit{child node}. In contrast to a directed graph, the pairs of nodes in an \textit{undirected graph} are unordered, where the edge $(i, j)$ denotes that vehicles $i$ and $j$ can obtain information from each other. Note that an undirected graph can be viewed as a special case of a directed graph, where an edge $(i, j)$ in the undirected graph corresponds to edges $(i, j)$ and $(j, i)$ in the directed graph. If an edge $(i, j) \in \mathcal{E}_p$, then node $i$ is a \textit{neighbor} of node $j$. The set of neighbors of node $i$ is denoted as $\mathcal{N}_i$. A \textit{weighted graph} associates a weight with every edge in the graph. In this book, all graphs are weighted. The \textit{union} of a collection of graphs is a graph whose node and edge sets are the unions of the node and edge sets of the graphs in the collection.
+
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=40mm,yshift=-48mm,anchor=north west] at (current page.north west){%
+	\includegraphics[width=\textwidth]{gambar/sample}};
+\end{tikzpicture}
+

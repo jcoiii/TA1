@@ -1,0 +1,42 @@
+
+\section{\textit{Social Force Model}}
+\singlespacing
+Dinamika pergerakan manusia telah menarik perhatian para ilmuwan sejak dekade 70-an. Berbagai pendekatan dilakukan untuk dapat memodelkan perilaku pergerakan manusia ini, mulai dari pendekatan statistik (Henderson, 1971), fluida (Helbing 1992.). hingga model pergerakan partikel gas (Helbing dkk., 1995). Dari berbagai macam model tersebut, dinamika pergerakan kerumunan manusia dapat dibagi menjadi 2 model besar, yaitu model makroskopik dan model mikroskopik. Model makroskopik lebih dahulu muncul dengan menganalogikan kerumunan manusia sebagai satu kesatuan entitas yang memiliki energi yang bergerak bersama. Dalam kelompok model ini dikenal antara lain model Hughes, Daamen- Hoogendoorn-Bovy, Bruno dkk serta model Colombo-Rosini (Kormanova, 2014).\\
+
+% CATATAN AKHIR 17 Feb 2019 !!
+% Tambahkan beberapa reference ke dta-pustaka.bib
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{sfm1}
+	\caption{Gaya yang bekerja pada seseorang saat berjalan.}
+\end{figure}
+
+Sedangkan model mikroskopik mulai muncul sejalan dengan perkembangan
+teknologi komputer yang makin maju, karena model ini memerlukan perhitungan yang sangat masif. Pada model mikroskopik, dinamika pergerakan manusia dianggap sebagai sebuah hasil interaksi gaya yang ditimbulkan oleh masingmasing individu, sehingga dianggap lebih realistik pemodelannya. Beberapa model mikroskopik antara lain model SFM (Helbing \& Molnar, 1995), model \textit{cellular automata} (Blue, V. J dan Adler, J. L., 1999 \& 2000) dan model berbasis \textit{artificial intelligence} (Bonabeau dkk., 1999).\\
+
+Dari berbagai macam model yang ada, pada penelitian ini dipilih model SFM
+dengan pertimbangan bahwa :
+\begin{enumerate}
+	\item SFM relatif sederhana dibandingkan dengan model perilaku pergerakan
+	pejalan kaki yang lain, namun mampu mewakili perilaku yang umum terjadi saat manusia berjalan di dalam sebuah kerumunan.
+	\item SFM mampu menggambarkan ruang pribadi masing-masing individu yang
+	dimodelkan.
+	\item Memodelkan perilaku pergerakan individu yang mengikuti individu lain
+	pada jarak yang aman dan nyaman.
+	\item Memodelkan perilaku pergerakan individu yang menghindari tembok atau
+	halangan lain pada jarak tertentu.
+\end{enumerate}
+
+Dinamika pergerakan individu ini dapat dituliskan dalam sebuah persamaan dinamika tertentu. Persamaan gerak dinamika untuk seluruh individu \textit{pedestrian} yang berada di dalam kerumunan dapat dituliskan sebagai berikut:
+
+\begin{equation}
+\begin{split}
+F_i(t) & = F_i^0(v_i,v_i^0e_i) + \sum_{j}F_{ij}(e_i,r_i-r_j) \\
+ & + \sum_{O}F_{iO}(e_i,r_i-r_O^i) + \sum_{a}F_{ia}(e_i,r_i-r_k,t)
+\end{split}
+\end{equation} 
+
+
+
+

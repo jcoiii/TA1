@@ -1,0 +1,161 @@
+% Version 1.0.0. (16 Feb 2019)
+% ==================================
+
+% Format kertas
+\usepackage{geometry}
+\geometry{a4paper, top=3cm,bottom=3cm,left=4cm,right=3cm}
+%\usepackage{tgtermes} % Times New Roman
+%\usepackage{times} % LATEX Roman
+
+% Package yang diperlukan
+\usepackage[colorlinks=true, linkcolor =black, anchorcolor = black, citecolor = black, urlcolor = black]{hyperref}
+\usepackage[htt]{hyphenat}
+\usepackage{listing}	  % Package untuk listing program	
+\usepackage{graphicx}     % Package untuk grafik/ gambar
+\usepackage{tabularx}     % Package untuk tabel
+\usepackage{float}
+\usepackage[hang,nooneline,scriptsize,md]{subfigure}
+\usepackage{epsfig}	% Package untuk grafik/ gambar *.eps
+\usepackage[font=small,labelfont=bf, labelsep=period]{caption}
+\usepackage[onehalfspacing]{setspace}      % Package untuk spasi 1.5
+\usepackage{indentfirst}
+%\setlength{\parindent}{0.6cm}
+\usepackage{parskip}
+\usepackage[titletoc]{appendix}
+\usepackage{cite}          % Package untuk sitasi menggunakan BibTex
+\usepackage[indonesian]{babel} % Package untuk Bahasa Indonesia
+\usepackage{array,ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage{textcase}
+\usepackage{bigstrut}
+%\usepackage[T1]{fontenc}  Optional, untuk beberapa simbol khusus
+\usepackage{rotating}
+%\usepackage{relsize}
+\usepackage{textcomp} 	% nice greek alphabet
+\usepackage{booktabs}
+\usepackage{amssymb,amsthm}
+\usepackage{amsmath}
+\usepackage{tikz} 
+\usetikzlibrary{shapes, arrows,calc,bending,matrix}
+\usepackage[american, siunitx]{circuitikz}
+\usepackage{lipsum}
+%\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{nicefrac}
+\usepackage{pdfpages}
+%\usepackage[colorlinks=true, linkcolor =black, anchorcolor = black, citecolor = black, urlcolor = black]{hyperref}
+\usepackage{courier}
+\usepackage{listings}
+\lstset{basicstyle=\small\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+%%% Pengaturan global
+\graphicspath{{gambar/}}   % letak direktori penyimpanan gambar
+
+\pagestyle{plain}
+
+
+% Format Judul Bab
+
+\renewcommand{\chaptertitlename}{BAB} 
+\titleformat{\chapter}[display]
+{\bfseries\Large}
+{%
+	% \vskip-5em
+	\filcenter
+	\Large\chaptertitlename \ \thechapter} % --> BAB 1
+{0mm}
+{\filcenter}
+\titleformat*{\section}{\bfseries\large}
+\titleformat*{\subsection}{\bfseries}
+\titlespacing*{\chapter}{0pt}{0pt}{15mm}
+% \titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+% Bagian untuk menghilangkan titik2 di daftar isi, gambar, tabel
+\usepackage[subfigure]{tocloft}
+\renewcommand{\cftpartleader}{\hfill}
+\renewcommand{\cftpartafterpnum}{\cftparfillskip}
+\renewcommand{\cftchapleader}{\hfill} 
+\renewcommand{\cftsecleader}{\hfill}
+
+%tambah "BAB" x di daftar isi 
+%\renewcommand*\cftchappresnum{BAB~}
+%\renewcommand\chaptername{BAB}
+%\settowidth{\cftchapnumwidth}{\cftchappresnum}
+%\renewcommand{\cftchapaftersnumb}{\quad}
+%\addtocontents{toc}{
+%	%\renewcommand\protect*\protect\cftchappresnum{\MakeUppercase{\chaptername}~}}
+%	\protect\renewcommand*\protect\cftchappresnum{\chaptername~}}
+
+%tambah "BAB" x di daftar isi 
+\renewcommand*\cftchappresnum{BAB~}
+\renewcommand\chaptername{BAB}
+\settowidth{\cftchapnumwidth}{\cftchappresnum}
+\renewcommand{\cftchapaftersnumb}{\quad}
+\addtocontents{toc}{
+	%\renewcommand\protect*\protect\cftchappresnum{\MakeUppercase{\chaptername}~}}
+	\protect\renewcommand*\protect\cftchappresnum{\chaptername~}}
+
+% Penambahan kata "Gambar" dan "Tabel" di daftar gambar dan daftar tabel
+\usepackage{chngcntr}  
+%\counterwithout{figure}{chapter}
+\renewcommand{\cftfigpresnum}{\bfseries Gambar\ }
+\renewcommand{\cfttabpresnum}{\bfseries Tabel\ }
+\newlength{\mylenf}
+% Jarak jeda antara nomer gambar/ tabel dengan keterangannya.
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+3em}
+\settowidth{\mylenf}{\cfttabpresnum}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+3em}
+\makeatletter
+
+% listoftable tanpa judul
+%\counterwithout{table}{chapter}
+\newcommand\daftartabel{%
+	\phantomsection
+	\@starttoc{lot}}
+\makeatother
+
+
+% Menghilangkan judul bibliografi 
+\makeatletter
+\renewenvironment{thebibliography}[1]{%
+	%     \section*{\refname}%
+	%      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+	\list{\@biblabel{\@arabic\c@enumiv}}%
+	{\settowidth\labelwidth{\@biblabel{#1}}%
+		\leftmargin\labelwidth
+		\advance\leftmargin\labelsep
+		\@openbib@code
+		\usecounter{enumiv}%
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	\sloppy
+	\clubpenalty4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty4000%
+	\sfcode`\.\@m}
+{\def\@noitemerr
+	{\@latex@warning{Empty `thebibliography' environment}}%
+	\endlist}
+\makeatother
+
+
+%lampiran
+\makeatletter
+\newcommand\appendix@chapter[1]{%
+	\refstepcounter{chapter}%
+	\orig@chapter*{Lampiran \@Alph\c@chapter \\ #1}\vspace{1em} % Format di lembar lampiran 
+%	\addcontentsline{toc}{chapter}{LAMP. \@Alph\c@chapter: #1}%
+	\addcontentsline{toc}{chapter}{{} \@Alph\c@chapter. #1} % Format di daftar isi
+}
+
+\let\orig@chapter\chapter
+\g@addto@macro\appendix{\let\chapter\appendix@chapter}
+\makeatother
+
+%%% Tambahan format untuk tabel : cell alignment
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}

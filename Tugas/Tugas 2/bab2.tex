@@ -1,0 +1,252 @@
+\chapter{\uppercase{Tinjauan Pustaka}}
+\onehalfspacing
+Bab ini berisi teori-teori yang berhubungan dengan pemecahan masalah dan dibutuhkan dalam pengolahan data serta analisis pada penelitian \TA{} ini. Teori-teori dasar ini diperoleh melalui proses telaah pustaka yang intensif pada sejumlah pustaka yang direkomendasikan oleh dosen pembimbing, seperti misalnya: teori rangkaian listrik, teori sistem digital yang sesuai, teori tentang pengendali (mikroprosesor, Arduino, Raspberry Pi atau PLC), teori pengukuran dan akuisisi data, cara kerja sensor yang digunakan dan aktuator yang dibutuhkan dalam rancangan sistem mekatronika.
+
+Tinjauan literatur harus dapat meringkas apa yang sudah diketahui hingga saat ini (\textit{state of the art}), merinci konsep-konsep kunci dan faktor-faktor utama atau
+parameter dan hubungan yang mendasarinya, menggambarkan setiap pendekatan yang ada yang saling melengkapi, menyebutkan ketidakkonsistenan atau kekurangan dalam karya yang diterbitkan, mengidentifikasi hasil yang dilaporkan yang tidak meyakinkan atau bertentangan, dan memberikan alasan yang kuat untuk melakukan penelitian lebih lanjut.
+
+Hasil penelitian sebelumnya yang terkait dengan penelitian yang sedang dilakukan juga diletakkan pada bab Tinjauan Pustaka. Bab ini diletakkan sesudah Bab Pendahuluan dan disebut sebagai Bab 2. Bagian ini merupakan perantara antara Judul Bab dan Judul sub-bab pertama; bagian ini berisikan ringkasan dari Bab 2. Sebagai bagian pengantar untuk Bab 2, ceritakan apa yang dituliskan dalam Bab 2 ini, maksimal $\nicefrac{1}{4}$ halaman.
+
+Berikut ini contoh teori yang biasa digunakan pada penelitian di Teknik Mekatronika.
+
+\section{Hukum-hukum Rangkaian Listrik}
+Beberapa hukum utama yang harus diketahui oleh seorang calon sarjana Teknik Mekatronika antara lain adalah:
+\begin{enumerate}
+	\item Hukum Ohm
+	\item Hukum Kirchoff
+	\item dst \ldots
+\end{enumerate} 
+\subsection{Hukum Ohm}
+Salah satu hukum utama yang harus diketahui oleh seorang calon sarjana Teknik Mekatronika adalah hukum Ohm. Pada tahun 1827, Georg Simon Ohm (1789-1854), seorang ahli fisika Jerman, menemukan  hubungan langsung yang bersifat proporsional antara tegangan yang muncul di kedua terminal sebuah resistor dengan arus yang melaluinya. Hubungan inilah yang sekarang dikenal sebagai Hukum Ohm, yang secara matematis dapat dituliskan sebagai:
+\begin{equation}
+v=iR
+\label{eq:hkOhm}
+\end{equation}
+dst \ldots
+
+\subsection{Hukum Kirchoff}
+Ketika rangkaian elektronika bertambah rumit, maka Hukum Ohm tidak mencukupi lagi untuk melakukan analisis. Perlu hukum lain untuk melengkapi analisis. Pada tahun 1847, seorang fisikawan Jerman bernama Gustav Robert Kirchhoff (1824-1887) menerbitkan 2 buah hukum untuk membantu analisis, yang dikenal sebagai Hukum Arus Kirchhoff (\textit{Kirchhoff's Current Law}, KCL) dan Hukum Tegangan Kirchhoff (\textit{Kirchhoff's Voltage Law}, KVL).\\
+
+Hukum pertama Kirchhoff (KCL) menyatakan:
+\begin{quote}
+	Penjumlahan arus yang menuju sebuah \textit{node} (atau sebuah lingkungan tertutup) adalah sama dengan nol.\cite{John03a}
+\end{quote}
+Secara matematis dapat dituliskan sebagai:
+\begin{equation}
+\sum_{n=1}^N i_n =0
+\label{eq:KCL}
+\end{equation}
+Ilustrasi untuk hukum KCL ini dapat dilihat pada Gambar \ref{ill:kcl}.
+\begin{figure}[h!]
+	\begin{center}
+		\begin{circuitikz} [scale=1]
+			%short circuit
+			\draw (0,-0.25) to [short, i_=$i_1$] (2,0)
+			to [short, i_=$i_2$] (1,1);
+			\draw (3.5,-0.25) to [short, i^=$i_4$,-*] (2,0)
+			to [short, i_=$i_5$] (2,-1);
+			\draw (2,0) to [short, i_=$i_3$] (3,1);
+		\end{circuitikz}		
+	\end{center}
+	\caption{Ilustrasi KCL pada \textit{node}.}
+	\label{ill:kcl}
+\end{figure}
+Persamaan yang sesuai bagi ilustrasi pada Gambar \ref{ill:kcl} adalah:
+\begin{equation}
+\begin{split}
+i_1-i_2-i_3+i_4-i_5=0 \\
+i_1+i_3=i_2+i_4+i_5.
+\end{split}	
+\label{kcl1}
+\end{equation}
+
+
+
+\section{Menyisipkan Persamaan} 
+
+Beberapa contoh cara menyisipkan persamaan.
+
+
+\subsection{Membuat Persamaan (\textit{Equation})}
+Untuk membuat persamaan di baris yang sama, dapat menggunakan tanda 'dollar' (\verb|$|) dan dilanjutkan dengan persamaannya sendiri. Contoh, persamaan berikut ini: \verb|$\theta(\vec{r}_1,...,\vec{r}_N)$| yang akan menghasilkan $\theta(\vec{r}_1,...,\vec{r}_N)$. Untuk menuliskan karakter khusus seperti huruf \"{o} dalam kata "Schr\"{o}dinger", dapat menggunakan cara penulisan simbol yang umum berlaku di lingkungan \LaTeX.  Anda dapat mencari di internet dengan kata kunci "latex math symbol". Salah satu dokumen tentang simbol matematika di \LaTeX{} dapat diperoleh pada link berikut: \href {https://reu.dimacs.rutgers.edu/Symbols.pdf}{https://reu.dimacs.rutgers.edu/Symbols.pdf}.
+
+Untuk menuliskan persamaan yang berdiri sendiri dan memiliki nomer urut persamaan, gunakan lingkungan \textit{equation}, seperti berikut:
+\begin{lstlisting}
+\begin{equation}
+\begin{split}
+i_1-i_2-i_3+i_4-i_5=0 \\
+i_1+i_3=i_2+i_4+i_5.
+\end{split}	
+\end{equation}
+\end{lstlisting}
+
+Hasilnya akan menjadi seperti berikut:
+\begin{equation}
+\begin{split}
+i_1-i_2-i_3+i_4-i_5=0 \\
+i_1+i_3=i_2+i_4+i_5.
+\end{split}	
+\end{equation}
+
+\subsection{Menuliskan Matrix}
+Contoh berikut ini adalah cara penulisan matrix, dengan ukuran huruf dikecilkan hingga ukuran \verb|\footnotesize|:
+{\footnotesize
+\begin{equation}
+\Psi({\bf r}_1, {\bf r}_2, \cdots {\bf r}_N) = \frac{1}{\sqrt{N!}}\left| \begin{array}{llcl}
+\phi_1({\bf r}_1) & \phi_2({\bf r}_1) & \cdots & \phi_N({\bf r}_1)\\
+\phi_1({\bf r}_2) & \phi_2({\bf r}_2) & \cdots & \phi_N({\bf r}_2)\\
+\phi_1({\bf r}_3) & \phi_2({\bf r}_3) & \cdots & \phi_N({\bf r}_3)\\
+\multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} \\
+\multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} \\
+\multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} & \multicolumn{1}{c}{.} \\
+\phi_1({\bf r}_N) & \phi_2({\bf r}_N) & \cdots & \phi_N({\bf r}_N)\\
+\end{array} \right|
+\end{equation}
+}
+
+
+\section{Menuliskan Referensi dan Sitasi}
+Jika Anda menuliskan sebuah kutipan dari sebuah referensi, Anda harus menuliskan dari mana kutipan tersebut diambil/dikutip. Gunakan perintah \verb|\cite| \verb|{bib_id}|, setelah kutipan tersebut. \lta{} pada \prodis{} \tekm{} UNPAR mengguna-kan standar sitasi dan penulisan referensi dari IEEE (\ieee)\cite{Helm53}. Dengan menggunakan standar \textit{style} IEEE (ieeetr), Anda dapat lebih praktis menuliskan sumber sitasi, misalkan \cite{John03a, John03b}. Jika lebih banyak dari 2 sumber, \textit{style} ini dapat dituliskan \cite{Thev83a,Thev83b,Norton26,mayer26,purcell13,alex07} dan sebagainya. 
+
+Penulisan referensi pada Daftar Pustaka tidak diurutkan berdasar alfabet, namun berdasar urutan kemunculannya di bagian teks utama dokumen ini. Gunakan mesin pencari Google Scholar untuk mencari referensi dan gunakan fasilitas '\textit{cite}' (\textbf{Gambar \ref{fig:cite}}) dan BibTeX (\textbf{Gambar \ref{fig:bibtex}}) yang ada.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8 \textwidth]{cite}
+	\caption{Tanda 'cite' pada mesin pencari Google Scholar.}
+	\label{fig:cite}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.75 \textwidth]{cite2}
+	\caption{\textit{Icon} BibTeX pada hasil 'cite' pada mesin pencari Google Scholar.}
+		\label{fig:bibtex}
+\end{figure}
+\textbf{Catatan:} sitasi pada subbab ini hanya contoh, tidak menunjukkan topik yang sebenarnya.
+
+
+
+\section{Menampilkan Gambar}
+
+Untuk gambar yang digunakan pada \lta{} ini bisa menggunakan tipe apa aja, namun disarankan menggunakan file gambar dengan ekstensi \verb|.eps|. File gambar dengan ekstensi \verb|.eps| memiliki resolusi yang baik dan halus. Anda boleh juga mengunakan file gambar dengan ekstensi \verb|.png|, yang memiliki fitur transparansi. Jika Anda menggunakan \LaTeX, disarankan untuk tidak menggunakan file gambar dengan ekstensi \verb|.tif| atau \verb|gif|.
+
+\subsection{Gambar Tipe Satu}
+Satu gambar dan terletak di tengah. dapat dilihat pada \textbf{Gambar \ref{fig:nao}}
+\begin{figure}[H] %h artinya here!
+\centering
+\includegraphics[width=0.8\textwidth]{shakenao}
+\caption{Tampak muka robot Aldebaran Nao.}
+\label{fig:nao}
+\end{figure}
+
+Cara melakukan sitasi gambar adalah seperti ini: pada \textbf{Gambar \ref{fig:nao}}, dengan cara men-\textit{cite} di \textit{caption}-nya.
+
+\subsection{Gambar Tipe Dua}
+Dua gambar dengan dua \textit{caption} terpisah, dapat dilihat pada \textbf{Gambar \ref{fig:nao1}} dan \textbf{Gambar \ref{fig:nao2}}
+\begin{figure}[h!]
+\centering
+\begin{minipage}{0.35\linewidth}
+\centering
+\includegraphics[width=0.5\linewidth]{nao}
+\caption{Nao kiri}
+\label{fig:nao1}
+\end{minipage}
+\hspace{0.2\linewidth}
+\begin{minipage}{0.35\linewidth}
+\centering
+\includegraphics[width=0.5\linewidth]{nao}
+\caption{Nao kanan.}
+\label{fig:nao2}
+\end{minipage}
+\end{figure}
+
+\subsection{Gambar Tipe Tiga}
+Contoh dua gambar dengan satu \textit{caption}, dapat dilihat pada \textbf{Gambar \ref{naonao}}.
+\begin{figure}[H]
+\centering
+\subfigure[]{
+ \includegraphics[width=0.36\linewidth]{naored}
+ \label{nao-1}
+ }\hspace{0.1\linewidth}
+\subfigure[]{
+ \includegraphics[width=0.3\linewidth]{nao}
+ \label{nao-2}
+}
+\caption{Variasi warna dari robot Nao. \subref{nao-1} adalah Nao merah dan \subref{nao-2} adalah Nao biru. Kedua robot ini dibuat oleh Aldebaran Robotics yang berpusat di Perancis.}
+\label{naonao}
+\end{figure}   
+
+\subsection{Gambar Tipe Empat}
+Satu \textit{caption} dengan banyak gambar, dapat dilihat pada \textbf{Gambar \ref{layers}}. {\color{red}\itshape\lipsum[2]}
+\begin{figure}[h]
+\centering
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{naored}
+\label{fig:1}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{twonao}
+\label{fig:2}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{nao}
+\label{fig:3}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{tienao}
+\label{fig:4}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{nao}
+\label{fig:5}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{naored.jpg}
+\label{fig:6}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{twonao}
+\label{fig:7}
+}\hspace{0.1\linewidth}
+\subfigure[]{
+\includegraphics[width=0.15\linewidth]{tienao.jpg}
+\label{fig:8}
+}
+\caption{Beberapa gambar robot Nao.
+\subref{fig:1} dan \subref{fig:2} adalah Nao merah dan Nao berdua; 
+\subref{fig:3} dan \subref{fig:4} adalah Nao biru dan Nao merah di dalam lingkaran;
+\subref{fig:5} dan \subref{fig:6} adalah Nao biru dan Nao merah;
+\subref{fig:7} dan \subref{fig:8} adalah Nao berdua dan Nao merah di dalam lingkaran.
+}
+\label{layers}\end{figure} 
+
+
+\section{Menuliskan Tabel}
+
+Tabel pada \lta{} ini dituliskan dengan format rata-tengah (\textit{centered alignment}) dan penulisan \textit{caption} di atas tabel. Contoh penulisan tabel dapat dilihat pada \textbf{Tabel \ref{tab:random}} berikut ini.
+
+\begin{table}[H]
+\caption{Contoh pertama}
+\label{tab:random}
+\begin{center}
+\setlength\extrarowheight{5pt}	
+\begin{tabular}{|c|c|c|c|}	
+\hline
+\textbf{$Title_1$} & \textbf{$title_{\mathrm{DUA}}$} & \textbf{Title 3 } & \textbf{Title 4}  \\
+\hline
+1647 &  1.97  &  0.68 &  1.90 \\
+2301 &  2.92  &  1.06 &  2.75 \\
+2969 &  3.23  &  1.16 &  3.78 \\
+4625 &  6.72  &  1.87 &  5.59 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\textbf{Tabel \ref{tab:random}} di atas adalah tabel random. {\color{red}\itshape\lipsum[2]}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Keep the following \cleardoublepage at the end of this file, 
+% otherwise \includeonly includes empty pages.
+\cleardoublepage

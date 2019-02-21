@@ -1,0 +1,77 @@
+%  Format/Template Draft Laporan Tugas Akhir 
+%  di Program Studi Sarjana Teknik Mekatronika, 
+%  Fakultas Teknologi Industri, 
+%  Universitas Katolik Parahyangan
+%  Jl. Ciumbuleuit no 94, Bandung 40141, INDONESIA.
+%  Versi : 1.0.0
+%  Tanggal : 16 Februari 2019
+%  Pembuat: Ali Sadiyoko, Teknik Mekatronika UNPAR.
+%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,oneside]{book} % Deklarasi kelas dokumen
+
+\input{dta1-identitas}  % File identitas Tugas Akhir
+\input{dta1-format}     % File berisi format Laporan Tugas Akhir
+
+% Daftar beberapa istilah khusus Teknik Mekatronika UNPAR
+\newcommand{\prodis}{Program Studi Sarjana}
+\newcommand{\tekm}{Teknik Elektro (Konsentrasi Mekatronika)}
+\newcommand{\fti}{Fakultas Teknologi Industri}
+\newcommand{\unpar}{Universitas Katolik Parahyangan}
+\newcommand{\lta}{Proposal Tugas Akhir}
+\newcommand{\TA}{Tugas Akhir}
+\newcommand{\PTA}{Proposal Tugas Akhir}
+\newcommand{\ieee}{\textit{Institute of Electrical and Electronics Engineers}}
+
+
+%%%% Identitas file PDF
+\pdfinfo{
+	/Author (\namamhsw)
+	/Title  (\judul)
+	/CreationDate (\today)
+	/Subject (\lta{} Teknik Mekatronika \unpar, INDONESIA)
+	/Keywords (\keywords)
+}
+
+\begin{document}
+\frontmatter	
+\include{dta1-sampul}      % Lembar sampul utama
+\include{dta1-sampuldalam} % Lembar sampul dalam
+\include{dta1-sah}         % Lembar Persetujuan Pembimbing
+\include{dta1-plagiasi}    % Pernyataan tidak mencontek/ melakukan tindakan plagiat
+
+\pagenumbering{roman} 
+\include{dta1-abstrak}     % File Abstrak
+\include{dta1-pengantar}   % File Kata Pengantar
+\include{dta1-daftisi}     % File Daftar Isi
+\include{dta1-dafttbl}     % File Daftar Tabel
+\include{dta1-daftgbr}     % File Daftar Gambar
+\include{dta1-daftsimb}    % File Daftar Simbol & Variabel
+
+\mainmatter               % BAGIAN UTAMA DOKUMEN
+\pagenumbering{arabic}
+\onehalfspacing           % Spasi 1.5
+  \include{bab1}	      % File BAB 1: PENDAHULUAN
+  \include{bab2}	      % File BAB 2: TINJAUAN PUSTAKA
+  \include{bab3}	      % File BAB 3: PERANCANGAN SISTEM
+  
+ \backmatter              % BAGIAN AKHIR DOKUMEN
+ \input{dta1-daftpust}     % File Daftar Pustaka (Bibliography)
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%% BAGIAN LAMPIRAN 
+\begin{appendices}
+\include{dta1cov-lampA} % Cover pembatas untuk Lampiran A
+% Isi Lampiran A
+\include{notegraf}
+%\include{sfm}
+\include{dta1cov-lampB} % Cover pembatas untuk Lampiran B
+% Isi Lampiran B
+\include{lamp-listing}
+\include{lamp-circuit}
+\include{lamp-mech}
+\include{lamp-grumman}
+\end{appendices}
+
+	
+\end{document}

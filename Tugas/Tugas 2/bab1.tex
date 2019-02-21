@@ -1,0 +1,71 @@
+\chapter{\uppercase{Pendahuluan}}
+
+
+\section{Latar Belakang Masalah}
+\label{sec:latarbelakang} 
+Sistem pendulum terbalik adalah sistem yang sering digunakan untuk mendemonstrasikan dinamika sistem dan implementasi sistem kontrol \cite{lundberg2010history}. Sistem pendulum terbalik dapat digunakan sebagai salah satu \textit{benchmark} pada penerapan teori kontrol. \textit{Benchmark} dari teori kontrol yang dimaksud adalah penggunaan model yang telah diturunkan dan melakukan pengukuran validasi terhadap efisiensi serta performansi dari metode kontrol yang diimplementasikan pada sistem yang digunakan \cite{boubaker2012inverted}. Stabilisasi dari batang pada posisi tegak lurus merupakan salah satu \textit{benchmark} dari teori kontrol \cite{jadlovska2012swingup}. 
+
+\begin{figure}[H] %h artinya here!
+	\centering
+	\includegraphics[width=0.8\textwidth]{SPTL}
+	\caption{Ilustrasi Sistem Pendulum Terbalik Linear}
+	\label{fig:sptl}
+\end{figure}
+
+Sistem pendulum terbalik sendiri adalah sistem non-linear yang dapat dibedakan menjadi dua macam, yaitu linear dan rotari \cite{jadlovska2012swingup}. Sistem pendulum terbalik linear terdiri dari suatu batang yang diletakkan pada sebuah kereta (\textit{cart}) seperti pada gambar \ref{fig:sptl}. Kereta (\textit{cart}) akan digerakkan menggunakan motor yang akan dikendalikan sehingga mengasilkan gerakan ayunan dari batang yang berfungsi untuk menjaga batang dapat mencapai posisi vertikal terhadap bidang horizontal \cite{bakaravc2017design}. 
+
+Dalam beberapa tahun terakhir, terdapat beberapa pengaplikasian dari sistem pendulum terbalik, seperti \textit{Two-Wheeled Self-Balancing Robot} dan kontrol \textit{Rocket Thruster} saat lepas landas \cite{anderson1989learning,ooi2003balancing,hellman2015two}. Metode kontrol pada sistem pendulum terbalik yang dapat digunakan adalah kontrol LQR (\textit{Linear Quadratic Regulator}), Logika Fuzzy, Jaringan Neural dan Kontrol PID.\cite{kumar2012controller,anderson1989learning,hellman2015two,nasir2008performance}
+
+
+\section{Identifikasi dan Perumusan Masalah.}
+\label{sec:identifikasi}
+Berdasarkan uraian pada latar belakang masalah di atas, dapat diiidentifikasi masalah untuk menyelesaikan penelitian sistem pendulum terbalik adalah:
+
+\begin{enumerate}[noitemsep]
+	\item Apa saja komponen dari sistem pendulum terbalik?
+	\item Apa saja komponen dari sistem pendulum terbalik yang perlu dimodelkan?
+	\item Bagaimana cara memodelkan sistem pendulum terbalik?
+	\item Apa Metode kontrol yang tepat untuk mengendalikan motor agar dapat digunakan simpangan maksimal dari sistem pendulum terbalik yaitu $\theta$ = 180\textsuperscript{o}?
+\end{enumerate}
+
+\section{Batasan Masalah dan Asumsi}
+\label{sec:batasan}
+Agar penelitian Tugas Akhir ini dapat diselesaikan dengan baik, perlu ada batasan pada masalah utama di atas. Batasan masalah tersebut antara lain: 
+
+\begin{enumerate}[noitemsep]
+	\item Sistem yang akan dibangun masih berupa rancangan purwarupa (prototype).
+	\item Sistem pendulum terbalik akan menggunakan satu buah batang.
+	\item Sistem akan dibangun dengan basis Arduino atau Raspberry Pi.
+\end{enumerate}
+
+\section{Tujuan \TA}
+\label{sec:tujuan-ta}
+Tujuan penulisan Tugas Akhir ini adalah membuat model dan mengimplementasikan metode kontrol umpan balik pada sistem pendulum terbalik dan membuat prototipe dari sistem, serta menampilkan perfroma dari sistem pendulum terbalik menggunakan suatu metode kontrol untuk dapat mempertahankan posisi dari batang yang diinginkan (tegak Lurus terhadap bidang horizontal) dengan sudut simpangan $\theta$=180\textsuperscript{o}. 
+
+\section{Manfaat \TA}
+\label{sec:manfaat-ta}
+Berikut adalah manfaat dari penelitian sistem pendulum terbalik untuk beberapa pihak, antara lain: 
+\begin{itemize}[noitemsep]
+	\item Laboratorium Kontrol yang ingin memperlihatkan implementasi teori kontrol pada suatu sistem (pada kasus ini Sistem Pendulum Terbalik).
+	\item Pembaca yang ingin mempelajari pemanfaatan teori kontrol pada sistem pendulum terbalik.
+	\item Penelitian pribadi, untuk menambah pengetahuan dan pengalaman menyelesaikan masalah nyata di lapangan.
+	\item Pengembangan ilmu pengetahuan, terutama pada bidang sistem kontrol, dan sistem pengukuran dan akuisisi data.
+\end{itemize}
+
+\section{Metodologi \TA}
+\label{sec:metodologi-ta}
+Metodologi yang dilakukan pada penelitian ini yaitu metode eksperimen yang diawali dengan studi literatur terlebih dahulu. Mempelajari topik penelitian yang akan dikerjakan, mencari solusi dari masalah, mempelajari seluruh komponen yang akan digunakan, dan mempelajari cara memodelkan dan mengendalikan sistem pendulum terbalik.
+
+\section{Sistematika Penulisan}
+Laporan \lta{} ini dibagi menjadi 3 bab, yakni sebagai berikut:
+\begin{enumerate}
+\item \textbf{Bab 1 Pendahuluan}. Dalam bab ini dijelaskan mengenai latar belakang masalah, identifikasi dan perumusan masalah, batasan masalah dan asumsi, tujuan Tugas Akhir, manfaat Tugas Akhir, metodologi Tugas Akhir serta sistematika penulisan \lta.
+\item \textbf{Bab 2 Tinjauan Pustaka}. Bab ini berisi teori-teori yang berhubungan dengan pemecahan masalah dan dibutuhkan dalam pengolahan data serta analisis. Teori-teori dasar ini diperoleh melalui proses telaah pustaka yang intensif pada sejumlah pustaka yang direkomendasikan oleh dosen pembimbing, seperti misalnya: teori rangkaian listrik, teori sistem digital yang sesuai, teori tentang pengendali (mikroprosesor, arduino, raspberry Pi atau PLC), teori pengukuran dan akuisisi data, cara kerja sensor yang digunakan dan aktuator yang dibutuhkan dalam rancangan sistem mekatronika.
+\item \textbf{Bab 3 Perancangan Sistem}. Dalam bab ini dipaparkan antara lain:
+	\begin{enumerate}
+		\item Kriteria/ spesifikasi produk/sistem yang Anda usulkan.
+		\item Usulan disain untuk menyelesaikan masalah yang telah dipaparkan di bab sebelumnya (Bab 1). Pada bagian ini, usulan disain dituliskan hingga detil. 
+		\item Proses/prosedur pembuatan disain produk/sistem.
+		\item Rencana pengujian produk/sistem.
+	\end{enumerate}
+\end{enumerate}

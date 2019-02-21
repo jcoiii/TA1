@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{lundberg2010history}
+K.~H. Lundberg and T.~W. Barton, ``History of inverted-pendulum systems,'' {\em
+  IFAC Proceedings Volumes}, vol.~42, no.~24, pp.~131--135, 2010.
+
+\bibitem{boubaker2012inverted}
+O.~Boubaker, ``The inverted pendulum: A fundamental benchmark in control theory
+  and robotics,'' pp.~1--6, 2012.
+
+\bibitem{jadlovska2012swingup}
+S.~Jadlovska and J.~Sarnovsky, ``Swingup and stabilizing control of classical
+  and rotary inverted pendulum systems,'' pp.~38--41, 2012.
+
+\bibitem{bakaravc2017design}
+P.~Bakar{\'a}{\v{c}}, M.~Kal{\'u}z, {\em et~al.}, ``Design and development of a
+  low-cost inverted pendulum for control education,'' pp.~398--403, 2017.
+
+\bibitem{anderson1989learning}
+C.~W. Anderson, ``Learning to control an inverted pendulum using neural
+  networks,'' {\em IEEE Control Systems Magazine}, vol.~9, no.~3, pp.~31--37,
+  1989.
+
+\bibitem{ooi2003balancing}
+R.~C. Ooi, ``Balancing a two-wheeled autonomous robot,'' {\em University of
+  Western Australia}, vol.~3, 2003.
+
+\bibitem{hellman2015two}
+H.~Hellman and H.~Sunnerman, ``Two-wheeled self-balancing robot: Design and
+  control based on the concept of an inverted pendulum,'' 2015.
+
+\bibitem{kumar2012controller}
+P.~Kumar, O.~Mehrotra, and J.~Mahto, ``Controller design of inverted pendulum
+  using pole placement and lqr,'' {\em International JournalOf Research in
+  Engineering and Technology (IJRET)}, vol.~1, pp.~532--538, 2012.
+
+\bibitem{nasir2008performance}
+A.~N.~K. Nasir, M.~A. Ahmad, and M.~F. Rahmat, ``Performance comparison between
+  lqr and pid controllers for an inverted pendulum system,'' in {\em AIP
+  Conference Proceedings}, vol.~1052, pp.~124--128, AIP, 2008.
+
+\end{thebibliography}
