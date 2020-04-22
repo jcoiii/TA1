@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.21)  21 FEB 2019 21:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.21)  10 APR 2019 10:16
 entering extended mode
 **./dta1-main.tex
 (dta1-main.tex
@@ -1417,7 +1417,11 @@ Package chngcntr Info: \counterwithout already defined.
 )
 \mylenf=\skip133
 )
-(dta1-main.aux (bab1.aux))
+(dta1-main.aux (dta1-sampul.aux) (dta1-sampuldalam.aux) (dta1-sah.aux)
+(dta1-plagiasi.aux) (dta1-abstrak.aux) (dta1-pengantar.aux) (dta1-daftisi.aux)
+(dta1-dafttbl.aux) (dta1-daftgbr.aux) (dta1-daftsimb.aux) (bab1.aux) (bab2.aux)
+(bab3.aux) (dta1cov-lampA.aux) (notegraf.aux) (dta1cov-lampB.aux)
+(lamp-listing.aux) (lamp-circuit.aux) (lamp-mech.aux) (lamp-grumman.aux))
 \openout1 = `dta1-main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
@@ -1634,6 +1638,155 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 37.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+\openout2 = `dta1-sampul.aux'.
+
+ (dta1-sampul.tex
+<gambar/logounpar.png, id=182, 180.31364pt x 177.42285pt>
+File: gambar/logounpar.png Graphic file (type png)
+<use gambar/logounpar.png>
+Package pdftex.def Info: gambar/logounpar.png  used on input line 18.
+(pdftex.def)             Requested size: 113.81102pt x 111.98543pt.
+
+[1
+
+
+
+
+{C:/Users/Jonathan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./gambar
+/logounpar.png>])
+\openout2 = `dta1-sampuldalam.aux'.
+
+ (dta1-sampuldalam.tex)pdfTeX warning (ext4): destination with the same identif
+ier (name{page.i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.40 \include{dta1-sampuldalam}
+                                % Lembar sampul dalam [1
+
+
+]
+\openout2 = `dta1-sah.aux'.
+
+ (dta1-sah.tex
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+) [2
+
+
+]
+\openout2 = `dta1-plagiasi.aux'.
+
+ (dta1-plagiasi.tex) [3
+
+
+]
+\openout2 = `dta1-abstrak.aux'.
+
+ (dta1-abstrak.tex)pdfTeX warning (ext4): destination with the same identifier 
+(name{page.i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.45 \include{dta1-abstrak}
+                                % File Abstrak [1
+
+
+
+]
+\openout2 = `dta1-pengantar.aux'.
+
+ (dta1-pengantar.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.22 \newpage
+              [2
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+)pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) h
+as been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.46 \include{dta1-pengantar}
+                                % File Kata Pengantar [3]
+\openout2 = `dta1-daftisi.aux'.
+
+ (dta1-daftisi.tex
+(dta1-main.toc
+Overfull \hbox (9.77252pt too wide) detected at line 9
+\OT1/cmr/bx/n/12 BAB 1 
+ []
+
+
+Overfull \hbox (9.77252pt too wide) detected at line 17
+\OT1/cmr/bx/n/12 BAB 2 
+ []
+
+[4
+
+
+
+]
+Overfull \hbox (9.77252pt too wide) detected at line 31
+\OT1/cmr/bx/n/12 BAB 3 
+ []
+
+)
+\tf@toc=\write5
+\openout5 = `dta1-main.toc'.
+
+) [5]
+\openout2 = `dta1-dafttbl.aux'.
+
+ (dta1-dafttbl.tex (dta1-main.lot)
+\tf@lot=\write6
+\openout6 = `dta1-main.lot'.
+
+) [6
+
+
+
+]
+\openout2 = `dta1-daftgbr.aux'.
+
+ (dta1-daftgbr.tex (dta1-main.lof)
+\tf@lof=\write7
+\openout7 = `dta1-main.lof'.
+
+) [7
+
+
+
+]
+\openout2 = `dta1-daftsimb.aux'.
+
+ (dta1-daftsimb.tex) [8
+
+
+
+]
 \openout2 = `bab1.aux'.
 
  (bab1.tex
@@ -1642,7 +1795,7 @@ Bab 1.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 1.
 
-<gambar/SPTL.jpg, id=45, 359.84438pt x 176.15813pt>
+<gambar/SPTL.jpg, id=344, 359.84438pt x 176.15813pt>
 File: gambar/SPTL.jpg Graphic file (type jpg)
 <use gambar/SPTL.jpg>
 Package pdftex.def Info: gambar/SPTL.jpg  used on input line 10.
@@ -1652,46 +1805,313 @@ Package pdftex.def Info: gambar/SPTL.jpg  used on input line 10.
 
 
 
+ <./gambar/SPTL.jpg>] [2] [3]) [4]
+\openout2 = `bab2.aux'.
 
-{C:/Users/Jonathan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./gambar
-/SPTL.jpg>] [2] [3]) [4] (dta1-daftpust.tex (dta1-main.bbl)) [5
+ (bab2.tex
+Bab 2.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 1.
+
+[5
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 52.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 52.
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
-(dta1-main.aux (bab1.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 52.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 52.
-Package rerunfilecheck Info: File `dta1-main.out' has not changed.
-(rerunfilecheck)             Checksum: B444D135C966E6FD63CFA04B9D968BA1;590.
+ []
 
+
+LaTeX Warning: Citation `John03a' on page 6 undefined on input line 32.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7]
+
+LaTeX Warning: Citation `Helm53' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `John03a' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `John03b' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `Thev83a' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `Thev83b' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `Norton26' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `mayer26' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `purcell13' on page 8 undefined on input line 109.
+
+
+LaTeX Warning: Citation `alex07' on page 8 undefined on input line 109.
+
+<gambar/cite.png, id=431, 712.16063pt x 180.675pt>
+File: gambar/cite.png Graphic file (type png)
+<use gambar/cite.png>
+Package pdftex.def Info: gambar/cite.png  used on input line 115.
+(pdftex.def)             Requested size: 318.67209pt x 80.84535pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<gambar/cite2.png, id=432, 365.11406pt x 381.67593pt>
+File: gambar/cite2.png Graphic file (type png)
+<use gambar/cite2.png>
+Package pdftex.def Info: gambar/cite2.png  used on input line 122.
+(pdftex.def)             Requested size: 298.75394pt x 312.31819pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8]
+<gambar/shakenao.jpg, id=443, 321.2pt x 157.58875pt>
+File: gambar/shakenao.jpg Graphic file (type jpg)
+<use gambar/shakenao.jpg>
+Package pdftex.def Info: gambar/shakenao.jpg  used on input line 138.
+(pdftex.def)             Requested size: 318.67209pt x 156.35237pt.
+ [9 <./gambar/cite.png> <./gambar/cite2.png>]
+<gambar/nao.png, id=451, 1048.66782pt x 994.46532pt>
+File: gambar/nao.png Graphic file (type png)
+<use gambar/nao.png>
+Package pdftex.def Info: gambar/nao.png  used on input line 151.
+(pdftex.def)             Requested size: 69.71046pt x 66.09924pt.
+File: gambar/nao.png Graphic file (type png)
+<use gambar/nao.png>
+Package pdftex.def Info: gambar/nao.png  used on input line 158.
+(pdftex.def)             Requested size: 69.71046pt x 66.09924pt.
+<gambar/naored.jpg, id=453, 218.8175pt x 231.86626pt>
+File: gambar/naored.jpg Graphic file (type jpg)
+<use gambar/naored.jpg>
+Package pdftex.def Info: gambar/naored.jpg  used on input line 171.
+(pdftex.def)             Requested size: 143.40213pt x 151.95663pt.
+File: gambar/nao.png Graphic file (type png)
+<use gambar/nao.png>
+Package pdftex.def Info: gambar/nao.png  used on input line 175.
+(pdftex.def)             Requested size: 119.50279pt x 113.32166pt.
+ [10 <./gambar/shakenao.jpg> <./gambar/nao.png>]
+File: gambar/naored.jpg Graphic file (type jpg)
+<use gambar/naored.jpg>
+Package pdftex.def Info: gambar/naored.jpg  used on input line 187.
+(pdftex.def)             Requested size: 59.74835pt x 63.30878pt.
+<gambar/twonao.jpg, id=464, 225.84375pt x 225.84375pt>
+File: gambar/twonao.jpg Graphic file (type jpg)
+<use gambar/twonao.jpg>
+Package pdftex.def Info: gambar/twonao.jpg  used on input line 191.
+(pdftex.def)             Requested size: 59.74835pt x 59.74837pt.
+File: gambar/nao.png Graphic file (type png)
+<use gambar/nao.png>
+Package pdftex.def Info: gambar/nao.png  used on input line 195.
+(pdftex.def)             Requested size: 59.74835pt x 56.64565pt.
+<gambar/tienao.jpg, id=465, 224.84pt x 224.84pt>
+File: gambar/tienao.jpg Graphic file (type jpg)
+<use gambar/tienao.jpg>
+Package pdftex.def Info: gambar/tienao.jpg  used on input line 199.
+(pdftex.def)             Requested size: 59.74835pt x 59.74698pt.
+File: gambar/nao.png Graphic file (type png)
+<use gambar/nao.png>
+Package pdftex.def Info: gambar/nao.png  used on input line 203.
+(pdftex.def)             Requested size: 59.74835pt x 56.64565pt.
+File: gambar/naored.jpg Graphic file (type jpg)
+<use gambar/naored.jpg>
+Package pdftex.def Info: gambar/naored.jpg  used on input line 207.
+(pdftex.def)             Requested size: 59.74835pt x 63.30878pt.
+File: gambar/twonao.jpg Graphic file (type jpg)
+<use gambar/twonao.jpg>
+Package pdftex.def Info: gambar/twonao.jpg  used on input line 211.
+(pdftex.def)             Requested size: 59.74835pt x 59.74837pt.
+File: gambar/tienao.jpg Graphic file (type jpg)
+<use gambar/tienao.jpg>
+Package pdftex.def Info: gambar/tienao.jpg  used on input line 215.
+(pdftex.def)             Requested size: 59.74835pt x 59.74698pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./gambar/naored.jpg>] [12 <./gambar/twonao.jpg> <./gambar/tienao.jpg>])
+\openout2 = `bab3.aux'.
+
+
+(bab3.tex
+Bab 3.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 1.
+
+[13
+
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+<gambar/gantt1.png, id=501, 853.1875pt x 311.1625pt>
+File: gambar/gantt1.png Graphic file (type png)
+<use gambar/gantt1.png>
+Package pdftex.def Info: gambar/gantt1.png  used on input line 40.
+(pdftex.def)             Requested size: 398.3386pt x 145.27782pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+[15 <./gambar/gantt1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
+
+ []
+
+) [16] (dta1-daftpust.tex (dta1-main.bbl)) [17
+
+
+
+]
+\openout2 = `dta1cov-lampA.aux'.
+
+ (dta1cov-lampA.tex) [18
+
+]
+\openout2 = `notegraf.aux'.
+
+
+(notegraf.tex
+<gambar/sample.png, id=522, 438.8897pt x 618.81187pt>
+File: gambar/sample.png Graphic file (type png)
+<use gambar/sample.png>
+Package pdftex.def Info: gambar/sample.png  used on input line 12.
+(pdftex.def)             Requested size: 398.3386pt x 561.6467pt.
+) [19
+
+
+
+ <./gambar/sample.png>]
+\openout2 = `dta1cov-lampB.aux'.
+
+ (dta1cov-lampB.tex) [20
+
+
+]
+\openout2 = `lamp-listing.aux'.
+
+
+(lamp-listing.tex) [21
+
+
+
+]
+\openout2 = `lamp-circuit.aux'.
+
+ (lamp-circuit.tex
+<gambar/maxflash.png, id=566, 529.98pt x 295.1025pt>
+File: gambar/maxflash.png Graphic file (type png)
+<use gambar/maxflash.png>
+Package pdftex.def Info: gambar/maxflash.png  used on input line 11.
+(pdftex.def)             Requested size: 423.98456pt x 236.0823pt.
+
+Overfull \hbox (25.64597pt too wide) in paragraph at lines 11--12
+[][] 
+ []
+
+) [22
+
+
+ <./gambar/maxflash.png>]
+\openout2 = `lamp-mech.aux'.
+
+ (lamp-mech.tex
+<gambar/mechdraw.png, id=572, 1659.19875pt x 2347.77126pt>
+File: gambar/mechdraw.png Graphic file (type png)
+<use gambar/mechdraw.png>
+Package pdftex.def Info: gambar/mechdraw.png  used on input line 8.
+(pdftex.def)             Requested size: 338.59023pt x 479.07513pt.
+) [23
+
+
+ <./gambar/mechdraw.png (PNG copy)>]
+\openout2 = `lamp-grumman.aux'.
+
+ (lamp-grumman.tex
+<gambar/grum.png, id=577, 770.88pt x 586.44093pt>
+File: gambar/grum.png Graphic file (type png)
+<use gambar/grum.png>
+Package pdftex.def Info: gambar/grum.png  used on input line 11.
+(pdftex.def)             Requested size: 398.3386pt x 303.02713pt.
+) [24
+
+
+ <./gambar/grum.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
+ (dta1-main.aux
+(dta1-sampul.aux) (dta1-sampuldalam.aux) (dta1-sah.aux) (dta1-plagiasi.aux)
+(dta1-abstrak.aux) (dta1-pengantar.aux) (dta1-daftisi.aux) (dta1-dafttbl.aux)
+(dta1-daftgbr.aux) (dta1-daftsimb.aux) (bab1.aux) (bab2.aux) (bab3.aux)
+(dta1cov-lampA.aux) (notegraf.aux) (dta1cov-lampB.aux) (lamp-listing.aux)
+(lamp-circuit.aux) (lamp-mech.aux) (lamp-grumman.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
+
+
+Package rerunfilecheck Warning: File `dta1-main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `dta1-main.out':
+(rerunfilecheck)             Before: A0604D6E8C4AB6F1C81DA2CA782580D6;2949
+(rerunfilecheck)             After:  8B5BEBAC496DBD25E417895EC230810B;2952.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 52.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
- 43801 strings out of 492946
- 930162 string characters out of 3135518
- 1204712 words of memory out of 3000000
- 47014 multiletter control sequences out of 15000+200000
- 544460 words of font info for 69 fonts, out of 3000000 for 9000
+ 44811 strings out of 492946
+ 948697 string characters out of 3135518
+ 1401954 words of memory out of 3000000
+ 47721 multiletter control sequences out of 15000+200000
+ 553753 words of font info for 103 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,67p,1200b,853s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Jonathan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi6
-00\tcrm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmti12.pfb>
-Output written on dta1-main.pdf (5 pages, 131177 bytes).
+ 57i,14n,67p,1454b,1187s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc} <C:\Users\Jonathan\
+AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb
+>
+Output written on dta1-main.pdf (36 pages, 2237988 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 678 PDF objects out of 1000 (max. 8388607)
+ 172 named destinations out of 1000 (max. 500000)
+ 435 words of extra memory for PDF output out of 10000 (max. 10000000)
 
